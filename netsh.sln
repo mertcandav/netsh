@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netsh", "netsh\netsh.csproj", "{4D622919-CAB2-44BF-B64E-76C18A0CDC5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netsh", "src\netsh.csproj", "{4D622919-CAB2-44BF-B64E-76C18A0CDC5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{1FA55849-62BA-4095-9AC2-3902AE3164B7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{742938DE-6C04-44C1-B055-27A1F8E1A8D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4D622919-CAB2-44BF-B64E-76C18A0CDC5D} = {742938DE-6C04-44C1-B055-27A1F8E1A8D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D5C05D7-4BBB-4779-B907-770A50A140F7}

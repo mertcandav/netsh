@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>Mertcan Davulcu</Authors>
+    <Description>CLI/Shell framework for .NET.</Description>
+    <RepositoryType>Public</RepositoryType>
+    <Copyright>MIT</Copyright>
+    <PackageTags>framework,cli,shell</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/mertcandav/netsh</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -9,5 +17,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>C:\Users\mertc\Desktop\Projects\netsh\src\netsh.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

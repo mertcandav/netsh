@@ -1,0 +1,14 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script:
+  displayName: "netsh Azure Pipeline"
+
+- script: |
+    dotnet restore ./src/netsh.csproj
+    dotnet build ./src/netsh.csproj -f netstandard1.3
+    dotnet test ./src/netsh.csproj --logger:console --verbosity=minimal

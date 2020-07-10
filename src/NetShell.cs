@@ -33,7 +33,6 @@ namespace NetSh {
         /// Initialize new instance of <see cref="NetShell"/>
         /// </summary>
         public NetShell() {
-
         }
 
         #endregion

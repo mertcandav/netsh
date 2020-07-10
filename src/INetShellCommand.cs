@@ -1,6 +1,6 @@
 ﻿namespace NetSh {
     /// <summary>
-    /// Interface for NetShell commands.
+    /// Interface for commans of <see cref="NetShell"/>.
     /// </summary>
     public interface INetShellCommand {
         #region Properties

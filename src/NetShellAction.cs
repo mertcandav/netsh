@@ -22,45 +22,70 @@
 
 #endregion
 
+using System;
+
 namespace NetSh {
     /// <summary>
-    /// Command sample of <see cref="NetShell"/>.
+    /// Function sample of <see cref="NetShell"/>.
     /// </summary>
-    public class NetShellCommand:INetShellCommand {
+    public class NetShellAction {
+        private Action action;
+
         #region Constructors
 
         /// <summary>
-        /// Initialize new instance of <see cref="NetShellCommand"/>
+        /// Initialize new instance of <see cref="NetShellAction"/>.
         /// </summary>
-        /// <param name="cmd">Command.</param>
-        public NetShellCommand(string cmd) {
-            Command = cmd;
-            Description = string.Empty;
+        public NetShellAction() {
+
         }
 
         /// <summary>
-        /// Initialize new instance of <see cref="NetShellCommand"/>
+        /// Initialize new instance of <see cref="NetShellAction"/>.
         /// </summary>
-        /// <param name="cmd">Command.</param>
-        /// <param name="desc">Description.</param>
-        public NetShellCommand(string cmd,string desc) :
-            this(cmd) {
-            Description = desc;
+        /// <param name="action">Action of function.</param>
+        public NetShellAction(Action action) {
+            SetAction(action);
         }
 
         #endregion
 
-        #region Properties
+        #region Operators
 
         /// <summary>
-        /// Command.
+        /// Parse implicit <see cref="Action"/> to <see cref="NetShellAction"/>.
         /// </summary>
-        public string Command { get; set; }
+        /// <param name="func">Action.</param>
+        public static implicit operator NetShellAction(Action func) {
+            return new NetShellAction(func);
+        }
 
         /// <summary>
-        /// Description of command.
+        /// Parse implicit <see cref="NetShellAction"/> to <see cref="Action"/>.
         /// </summary>
-        public string Description { get; set; }
+        /// <param name="func">Action.</param>
+        public static implicit operator Action(NetShellAction func) {
+            return func.action;
+        }
+
+        #endregion
+
+        #region Members
+
+        /// <summary>
+        /// Returns action of this <see cref="NetShellAction"/>.
+        /// </summary>
+        public Action GetAction() {
+            return action;
+        }
+
+        /// <summary>
+        /// Set action of this <see cref="NetShellAction"/>.
+        /// </summary>
+        /// <param name="action">Action to set.</param>
+        public void SetAction(Action action) {
+            this.action = action;
+        }
 
         #endregion
     }

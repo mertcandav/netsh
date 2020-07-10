@@ -6,7 +6,7 @@
     <members>
         <member name="T:NetSh.INetShellCommand">
             <summary>
-            Interface for NetShell commands.
+            Interface for commans of <see cref="T:NetSh.NetShell"/>.
             </summary>
         </member>
         <member name="P:NetSh.INetShellCommand.Command">
@@ -29,9 +29,48 @@
             Initialize new instance of <see cref="T:NetSh.NetShell"/>
             </summary>
         </member>
+        <member name="T:NetSh.NetShellAction">
+            <summary>
+            Function sample of <see cref="T:NetSh.NetShell"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShellAction.#ctor">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShellAction"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShellAction.#ctor(System.Action)">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShellAction"/>.
+            </summary>
+            <param name="action">Action of function.</param>
+        </member>
+        <member name="M:NetSh.NetShellAction.op_Implicit(System.Action)~NetSh.NetShellAction">
+            <summary>
+            Parse implicit <see cref="T:System.Action"/> to <see cref="T:NetSh.NetShellAction"/>.
+            </summary>
+            <param name="func">Action.</param>
+        </member>
+        <member name="M:NetSh.NetShellAction.op_Implicit(NetSh.NetShellAction)~System.Action">
+            <summary>
+            Parse implicit <see cref="T:NetSh.NetShellAction"/> to <see cref="T:System.Action"/>.
+            </summary>
+            <param name="func">Action.</param>
+        </member>
+        <member name="M:NetSh.NetShellAction.GetAction">
+            <summary>
+            Returns action of this <see cref="T:NetSh.NetShellAction"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShellAction.SetAction(System.Action)">
+            <summary>
+            Set action of this <see cref="T:NetSh.NetShellAction"/>.
+            </summary>
+            <param name="action">Action to set.</param>
+        </member>
         <member name="T:NetSh.NetShellCommand">
             <summary>
-            Command for NetShell.
+            Command sample of <see cref="T:NetSh.NetShell"/>.
             </summary>
         </member>
         <member name="M:NetSh.NetShellCommand.#ctor(System.String)">

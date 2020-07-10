@@ -26,6 +26,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fstest", "fstest\fstest.fsproj", "{EBEE0BB3-842D-4CF9-8B18-F15A9C1385A6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISSUE_TEMPLATE", "ISSUE_TEMPLATE", "{189BED26-5C46-42E8-B538-F33E3F533664}"
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE\bug_report.md = .github\ISSUE_TEMPLATE\bug_report.md
+		.github\ISSUE_TEMPLATE\feature_request.md = .github\ISSUE_TEMPLATE\feature_request.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +53,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4D622919-CAB2-44BF-B64E-76C18A0CDC5D} = {742938DE-6C04-44C1-B055-27A1F8E1A8D5}
 		{615199E8-3F2A-41A8-9491-3C53853497E1} = {7CA46522-C7B1-45AA-916B-AFD284CC90E2}
+		{189BED26-5C46-42E8-B538-F33E3F533664} = {7CA46522-C7B1-45AA-916B-AFD284CC90E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D5C05D7-4BBB-4779-B907-770A50A140F7}

@@ -6,7 +6,7 @@
         #region Constructors
 
         /// <summary>
-        /// Constructor.
+        /// Initialize new instance of <see cref="NetShellCommand"/>
         /// </summary>
         /// <param name="cmd">Command.</param>
         public NetShellCommand(string cmd) {
@@ -15,7 +15,7 @@
         }
 
         /// <summary>
-        /// Constructor.
+        /// Initialize new instance of <see cref="NetShellCommand"/>
         /// </summary>
         /// <param name="cmd">Command.</param>
         /// <param name="desc">Description.</param>

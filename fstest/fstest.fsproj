@@ -6,6 +6,8 @@
     <Company>Mertcan Davulcu</Company>
     <Authors>Mertcan Davulcu</Authors>
     <Description>F# test application of netsh.</Description>
+    <Copyright>Copyright(c) 2020 Mertcan Davulcu</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,6 +20,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\netsh.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -19,6 +19,16 @@
             Description of command.
             </summary>
         </member>
+        <member name="T:NetSh.NetShell">
+            <summary>
+            NetShell, shell tool.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShell.#ctor">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShell"/>
+            </summary>
+        </member>
         <member name="T:NetSh.NetShellCommand">
             <summary>
             Command for NetShell.
@@ -26,13 +36,13 @@
         </member>
         <member name="M:NetSh.NetShellCommand.#ctor(System.String)">
             <summary>
-            Constructor.
+            Initialize new instance of <see cref="T:NetSh.NetShellCommand"/>
             </summary>
             <param name="cmd">Command.</param>
         </member>
         <member name="M:NetSh.NetShellCommand.#ctor(System.String,System.String)">
             <summary>
-            Constructor.
+            Initialize new instance of <see cref="T:NetSh.NetShellCommand"/>
             </summary>
             <param name="cmd">Command.</param>
             <param name="desc">Description.</param>

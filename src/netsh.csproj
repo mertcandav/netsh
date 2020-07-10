@@ -6,7 +6,7 @@
     <Authors>Mertcan Davulcu</Authors>
     <Description>CLI/Shell framework for .NET.</Description>
     <RepositoryType>Public</RepositoryType>
-    <Copyright>MIT</Copyright>
+    <Copyright>Copyright(c) 2020 Mertcan Davulcu</Copyright>
     <PackageTags>framework,cli,shell</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mertcandav/netsh</RepositoryUrl>

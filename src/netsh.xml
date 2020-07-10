@@ -4,5 +4,48 @@
         <name>netsh</name>
     </assembly>
     <members>
+        <member name="T:NetSh.INetShellCommand">
+            <summary>
+            Interface for NetShell commands.
+            </summary>
+        </member>
+        <member name="P:NetSh.INetShellCommand.Command">
+            <summary>
+            Command.
+            </summary>
+        </member>
+        <member name="P:NetSh.INetShellCommand.Description">
+            <summary>
+            Description of command.
+            </summary>
+        </member>
+        <member name="T:NetSh.NetShellCommand">
+            <summary>
+            Command for NetShell.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShellCommand.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="cmd">Command.</param>
+        </member>
+        <member name="M:NetSh.NetShellCommand.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="desc">Description.</param>
+        </member>
+        <member name="P:NetSh.NetShellCommand.Command">
+            <summary>
+            Command.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShellCommand.Description">
+            <summary>
+            Description of command.
+            </summary>
+        </member>
     </members>
 </doc>

@@ -16,4 +16,8 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\src\netsh.csproj" />
+  </ItemGroup>
+
 </Project>

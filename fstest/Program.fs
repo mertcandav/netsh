@@ -5,6 +5,7 @@ open System.Threading;
 open System.Collections;
 open System.Collections.Generic;
 open NetSh;
+open NetSh.Extensions;
 
 module main =
     let beep() =
@@ -26,5 +27,9 @@ module main =
         //let mutable act = netshact.GetAction();
         //act <- new Action(beepbeep);
         //netshact.GetAction().Invoke();
+
+        //let coll = new List<String>(["Item0";"Item1";"Item2";"Item3"]);
+        //coll.Write();
+        //coll.WriteLine();
 
         0;

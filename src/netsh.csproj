@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <Version>0.0.1</Version>
     <Authors>Mertcan Davulcu</Authors>
     <Description>CLI/Shell framework for .NET.</Description>

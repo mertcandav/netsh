@@ -4,6 +4,30 @@
         <name>netsh</name>
     </assembly>
     <members>
+        <member name="T:NetSh.Extensions.ICollection">
+            <summary>
+            Extensions for <see cref="T:System.Collections.ICollection"/> samples.
+            </summary>
+        </member>
+        <member name="M:NetSh.Extensions.ICollection.Write(System.Collections.ICollection)">
+            <summary>
+            Write all items of <see cref="T:System.Collections.ICollection"/>.
+            </summary>
+            <param name="collection">Collection to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.ICollection.WriteLine(System.Collections.ICollection)">
+            <summary>
+            WriteLine all items of <see cref="T:System.Collections.ICollection"/>.
+            </summary>
+            <param name="collection">Collection to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.ICollection.GetValue(System.Collections.ICollection,System.Char)">
+            <summary>
+            Returns <see cref="M:System.Console.Write(System.String)"/> value of <see cref="T:System.Collections.ICollection"/>
+            </summary>
+            <param name="collection">Collection.</param>
+            <param name="sep">Seperator of items.</param>
+        </member>
         <member name="T:NetSh.INetShellCommand">
             <summary>
             Interface for commans of <see cref="T:NetSh.NetShell"/>.

@@ -22,6 +22,9 @@
 
 #endregion
 
+using System.Linq;
+using System.Collections.Generic;
+
 namespace NetSh {
     /// <summary>
     /// NetShell, shell tool.
@@ -43,6 +46,15 @@ namespace NetSh {
         public NetShell(params INetShellCommand[] commands) :
             this() {
             Commands = commands;
+        }
+        
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShell"/>
+        /// </summary>
+        /// <param name="commands">Commands.</param>
+        public NetShell(IEnumerable<INetShellCommand> commands) :
+            this() {
+            Commands = commands.ToArray();
         }
 
         #endregion

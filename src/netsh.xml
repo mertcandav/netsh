@@ -111,6 +111,12 @@
             </summary>
             <param name="commands">Commands.</param>
         </member>
+        <member name="M:NetSh.NetShell.#ctor(System.Collections.Generic.IEnumerable{NetSh.INetShellCommand})">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShell"/>
+            </summary>
+            <param name="commands">Commands.</param>
+        </member>
         <member name="P:NetSh.NetShell.Commands">
             <summary>
             Commands of shell.

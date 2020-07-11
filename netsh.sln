@@ -37,6 +37,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh", "NetSh", "{8BD62066-0386-4D37-B2B7-975DA707B061}"
 	ProjectSection(SolutionItems) = preProject
 		doc\NetSh\INetShellCommand.md = doc\NetSh\INetShellCommand.md
+		doc\NetSh\NetShell.md = doc\NetSh\NetShell.md
 		doc\NetSh\NetShellCommand.md = doc\NetSh\NetShellCommand.md
 	EndProjectSection
 EndProject

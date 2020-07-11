@@ -33,7 +33,26 @@ namespace NetSh {
         /// Initialize new instance of <see cref="NetShell"/>
         /// </summary>
         public NetShell() {
+            Commands = new INetShellCommand[0];
         }
+
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShell"/>
+        /// </summary>
+        /// <param name="commands">Commands.</param>
+        public NetShell(params INetShellCommand[] commands) :
+            this() {
+            Commands = commands;
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Commands of shell.
+        /// </summary>
+        public virtual INetShellCommand[] Commands { get; set; }
 
         #endregion
     }

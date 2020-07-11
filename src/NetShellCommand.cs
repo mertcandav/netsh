@@ -22,6 +22,8 @@
 
 #endregion
 
+using System;
+
 namespace NetSh {
     /// <summary>
     /// Command sample of <see cref="NetShell"/>.
@@ -35,7 +37,6 @@ namespace NetSh {
         /// <param name="cmd">Command.</param>
         public NetShellCommand(string cmd) {
             Command = cmd;
-            Description = string.Empty;
         }
 
         /// <summary>
@@ -48,6 +49,17 @@ namespace NetSh {
             Description = desc;
         }
 
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShellCommand"/>
+        /// </summary>
+        /// <param name="cmd">Command.</param>
+        /// <param name="desc">Description.</param>
+        /// <param name="act">Action.</param>
+        public NetShellCommand(string cmd,string desc,Action act) :
+            this(cmd,desc) {
+            Action = act;
+        }
+
         #endregion
 
         #region Properties
@@ -55,12 +67,17 @@ namespace NetSh {
         /// <summary>
         /// Command.
         /// </summary>
-        public string Command { get; set; }
+        public virtual string Command { get; set; }
 
         /// <summary>
         /// Description of command.
         /// </summary>
-        public string Description { get; set; }
+        public virtual string Description { get; set; }
+
+        /// <summary>
+        /// Action of command.
+        /// </summary>
+        public virtual Action Action { get; set; }
 
         #endregion
     }

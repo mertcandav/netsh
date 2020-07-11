@@ -1,4 +1,6 @@
-﻿namespace NetSh {
+﻿using System;
+
+namespace NetSh {
     /// <summary>
     /// Interface for commans of <see cref="NetShell"/>.
     /// </summary>
@@ -14,6 +16,11 @@
         /// Description of command.
         /// </summary>
         string Description { get; set; }
+
+        /// <summary>
+        /// Action of command.
+        /// </summary>
+        Action Action { get; set; }
 
         #endregion
     }

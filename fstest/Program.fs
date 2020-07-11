@@ -32,4 +32,7 @@ module main =
         //coll.Write();
         //coll.WriteLine();
 
+        //let mystr = "Test string value";
+        //mystr.Write();
+
         0;

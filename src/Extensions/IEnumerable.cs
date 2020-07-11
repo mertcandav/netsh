@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using ienum = System.Collections.ICollection;
+using ienum = System.Collections.IEnumerable;
 
 namespace NetSh.Extensions {
     /// <summary>

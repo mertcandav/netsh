@@ -4,43 +4,44 @@
         <name>netsh</name>
     </assembly>
     <members>
-        <member name="T:NetSh.Extensions.Char">
+        <member name="T:NetSh.Extensions.GenericExtensions`1">
             <summary>
-            Extension functions for <see cref="T:System.Char"/> samples.
+            Extension functions for <see cref="!:T"/> samples.
             </summary>
+            <typeparam name="T">Type of object.</typeparam>
         </member>
-        <member name="M:NetSh.Extensions.Char.Write(System.Char)">
+        <member name="M:NetSh.Extensions.GenericExtensions`1.Write(`0)">
             <summary>
             Write.
             </summary>
-            <param name="ch">Char to write.</param>
+            <param name="obj"><see cref="!:T"/> to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.Char.WriteLine(System.Char)">
+        <member name="M:NetSh.Extensions.GenericExtensions`1.WriteLine(`0)">
             <summary>
             WriteLine.
             </summary>
-            <param name="ch">Char to write.</param>
+            <param name="obj"><see cref="!:T"/> to write.</param>
         </member>
         <member name="T:NetSh.Extensions.IEnumerable">
             <summary>
-            Extension functions for <see cref="T:System.Collections.ICollection"/> samples.
+            Extension functions for <see cref="T:System.Collections.IEnumerable"/> samples.
             </summary>
         </member>
-        <member name="M:NetSh.Extensions.IEnumerable.Write(System.Collections.ICollection)">
+        <member name="M:NetSh.Extensions.IEnumerable.Write(System.Collections.IEnumerable)">
             <summary>
-            Write all items of <see cref="T:System.Collections.ICollection"/>.
-            </summary>
-            <param name="collection">Collection to write.</param>
-        </member>
-        <member name="M:NetSh.Extensions.IEnumerable.WriteLine(System.Collections.ICollection)">
-            <summary>
-            WriteLine all items of <see cref="T:System.Collections.ICollection"/>.
+            Write all items of <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <param name="collection">Collection to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.IEnumerable.GetValue(System.Collections.ICollection,System.Char)">
+        <member name="M:NetSh.Extensions.IEnumerable.WriteLine(System.Collections.IEnumerable)">
             <summary>
-            Returns <see cref="M:System.Console.Write(System.String)"/> value of <see cref="T:System.Collections.ICollection"/>
+            WriteLine all items of <see cref="T:System.Collections.IEnumerable"/>.
+            </summary>
+            <param name="collection">Collection to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.IEnumerable.GetValue(System.Collections.IEnumerable,System.Char)">
+            <summary>
+            Returns <see cref="M:System.Console.Write(System.String)"/> value of <see cref="T:System.Collections.IEnumerable"/>
             </summary>
             <param name="collection">Collection.</param>
             <param name="sep">Seperator of items.</param>

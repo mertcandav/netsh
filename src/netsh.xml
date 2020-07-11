@@ -46,6 +46,35 @@
             <param name="collection">Collection.</param>
             <param name="sep">Seperator of items.</param>
         </member>
+        <member name="T:NetSh.Extensions.String">
+            <summary>
+            Extension functions for <see cref="T:System.String"/> samples.
+            </summary>
+        </member>
+        <member name="M:NetSh.Extensions.String.Write(System.String)">
+            <summary>
+            Write.
+            </summary>
+            <param name="str"><see cref="T:System.String"/> to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.String.WriteLine(System.String)">
+            <summary>
+            WriteLine.
+            </summary>
+            <param name="str"><see cref="T:System.String"/> to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.String.WriteChars(System.String)">
+            <summary>
+            Write characters.
+            </summary>
+            <param name="str"><see cref="T:System.String"/> to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.String.WriteLineChars(System.String)">
+            <summary>
+            WriteLine characters.
+            </summary>
+            <param name="str"><see cref="T:System.String"/> to write.</param>
+        </member>
         <member name="T:NetSh.INetShellCommand">
             <summary>
             Interface for commans of <see cref="T:NetSh.NetShell"/>.

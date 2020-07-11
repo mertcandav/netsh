@@ -34,5 +34,14 @@ module main =
 
         //let mystr = "Test string value";
         //mystr.Write();
+        //mystr.WriteLine();
+        //mystr.WriteChars();
+        //mystr.WriteLineChars();
+        //GenericExtensions.Write(mystr);
+        //GenericExtensions.WriteLine(mystr);
+
+        //let coll = [1..10];
+        //GenericExtensions.Write(coll);
+        //GenericExtensions.WriteLine(coll);
 
         0;

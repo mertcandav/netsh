@@ -8,7 +8,7 @@ namespace NetSh.Extensions {
     /// Extension functions for <see cref="T"/> samples.
     /// </summary>
     /// <typeparam name="T">Type of object.</typeparam>
-    public class GenericExtensions<T> {
+    public static class GenericExtensions<T> {
         /// <summary>
         /// Write.
         /// </summary>

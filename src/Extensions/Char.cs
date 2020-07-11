@@ -2,7 +2,7 @@
 
 namespace NetSh.Extensions {
     /// <summary>
-    /// Extension functions for <see cref="System.Char"/> samples.
+    /// Extension functions for <see cref="char"/> samples.
     /// </summary>
     public static class Char {
         /// <summary>

@@ -21,24 +21,24 @@
             </summary>
             <param name="ch">Char to write.</param>
         </member>
-        <member name="T:NetSh.Extensions.ICollection">
+        <member name="T:NetSh.Extensions.IEnumerable">
             <summary>
             Extension functions for <see cref="T:System.Collections.ICollection"/> samples.
             </summary>
         </member>
-        <member name="M:NetSh.Extensions.ICollection.Write(System.Collections.ICollection)">
+        <member name="M:NetSh.Extensions.IEnumerable.Write(System.Collections.ICollection)">
             <summary>
             Write all items of <see cref="T:System.Collections.ICollection"/>.
             </summary>
             <param name="collection">Collection to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.ICollection.WriteLine(System.Collections.ICollection)">
+        <member name="M:NetSh.Extensions.IEnumerable.WriteLine(System.Collections.ICollection)">
             <summary>
             WriteLine all items of <see cref="T:System.Collections.ICollection"/>.
             </summary>
             <param name="collection">Collection to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.ICollection.GetValue(System.Collections.ICollection,System.Char)">
+        <member name="M:NetSh.Extensions.IEnumerable.GetValue(System.Collections.ICollection,System.Char)">
             <summary>
             Returns <see cref="M:System.Console.Write(System.String)"/> value of <see cref="T:System.Collections.ICollection"/>
             </summary>

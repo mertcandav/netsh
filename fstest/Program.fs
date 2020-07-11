@@ -28,7 +28,7 @@ module main =
         //act <- new Action(beepbeep);
         //netshact.GetAction().Invoke();
 
-        //let coll = new List<String>(["Item0";"Item1";"Item2";"Item3"]);
+        //let coll = List<String>(["Item0";"Item1";"Item2";"Item3"]);
         //coll.Write();
         //coll.WriteLine();
 

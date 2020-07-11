@@ -4,9 +4,26 @@
         <name>netsh</name>
     </assembly>
     <members>
+        <member name="T:NetSh.Extensions.Char">
+            <summary>
+            Extension functions for <see cref="T:System.Char"/> samples.
+            </summary>
+        </member>
+        <member name="M:NetSh.Extensions.Char.Write(System.Char)">
+            <summary>
+            Write.
+            </summary>
+            <param name="ch">Char to write.</param>
+        </member>
+        <member name="M:NetSh.Extensions.Char.WriteLine(System.Char)">
+            <summary>
+            WriteLine.
+            </summary>
+            <param name="ch">Char to write.</param>
+        </member>
         <member name="T:NetSh.Extensions.ICollection">
             <summary>
-            Extensions for <see cref="T:System.Collections.ICollection"/> samples.
+            Extension functions for <see cref="T:System.Collections.ICollection"/> samples.
             </summary>
         </member>
         <member name="M:NetSh.Extensions.ICollection.Write(System.Collections.ICollection)">

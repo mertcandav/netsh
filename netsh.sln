@@ -40,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh.Extensions", "NetSh.E
 	ProjectSection(SolutionItems) = preProject
 		doc\NetSh.Extensions\GenericExtensions.md = doc\NetSh.Extensions\GenericExtensions.md
 		doc\NetSh.Extensions\IEnumerable.md = doc\NetSh.Extensions\IEnumerable.md
+		doc\NetSh.Extensions\String.md = doc\NetSh.Extensions\String.md
 	EndProjectSection
 EndProject
 Global

@@ -1,4 +1,4 @@
-# GenericExtensions
+# IEnumerable
 
 ```csharp
 public static class IEnumerable
@@ -27,7 +27,6 @@ Prints all items line by line.
 ```csharp
 public static void GetValue(this System.Collections.IEnumerable collection,char sep)
 ```
-
 Returns console value of items.
 
 ## Example

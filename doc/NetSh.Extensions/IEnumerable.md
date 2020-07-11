@@ -11,16 +11,24 @@ Adds plugin functions for IEnumerable interface.
 ## Members
 
 ```csharp
-public static void Write(T obj)
+public static void Write(this System.Collections.IEnumerable collection)
 ```
 Prints all items side by side.
 
 # 
 
 ```csharp
-public static void WriteLine(T obj)
+public static void WriteLine(this System.Collections.IEnumerable collection)
 ```
 Prints all items line by line.
+
+#
+
+```csharp
+public static void GetValue(this System.Collections.IEnumerable collection,char sep)
+```
+
+Returns console value of items.
 
 ## Example
 
@@ -39,6 +47,7 @@ namespace Example {
                 "collection"
             };
             IEnumerable.WriteLine(mycoll); // or mycoll.WriteLine();
+            Console.Write(IEnumerable.GetValue(mycoll,' ') // or mycoll.GetValue(' '));
         }
     }
 }
@@ -50,6 +59,6 @@ M y  s t r i ng
 My
 string
 collection
-
+My string collection
 */
 ```

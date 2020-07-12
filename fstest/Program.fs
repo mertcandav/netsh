@@ -44,4 +44,9 @@ module main =
         //GenericExtensions.Write(coll);
         //GenericExtensions.WriteLine(coll);
 
+        //let shell = new NetShell();
+        //shell.Prompt <- "SHELL$ ";
+        //shell.AddCmd("BEEP","Beep console.",new Action(beep));
+        //shell.Loop();
+
         0;

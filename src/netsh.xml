@@ -135,9 +135,19 @@
             <param name="desc">Description of command.</param>
             <param name="act">Action of command.</param>
         </member>
+        <member name="M:NetSh.NetShell.Loop">
+            <summary>
+            Start command loop.
+            </summary>
+        </member>
         <member name="P:NetSh.NetShell.Commands">
             <summary>
             Commands of shell.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShell.Prompt">
+            <summary>
+            Prompt input.
             </summary>
         </member>
         <member name="T:NetSh.NetShellEventArgs">

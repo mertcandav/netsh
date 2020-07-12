@@ -23,6 +23,7 @@
 #endregion
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace NetSh {
@@ -69,6 +70,10 @@ namespace NetSh {
         public event EventHandler<NetShellCancelEventArgs> CommandProcess;
         protected virtual void OnCommandProcess(NetShellCancelEventArgs args) {
             CommandProcess?.Invoke(this,args);
+            if(!args.Cancel) {
+                args.Cmd.Action.Invoke();
+                OnCommandProcessed(new NetShellEventArgs(args.Cmd));
+            }
         }
 
         /// <summary>
@@ -95,6 +100,22 @@ namespace NetSh {
             Commands.Add(new NetShellCommand(cmd,desc,act));
         }
 
+        /// <summary>
+        /// Start command loop.
+        /// </summary>
+        public void Loop() {
+            do {
+                Console.Write(Prompt);
+                string input = Console.ReadLine();
+                IEnumerable<INetShellCommand> commands = Commands.Where(x => x.Command == input);
+                if(commands.Count() <= 0) {
+                    Console.WriteLine($"'{input}' not found command!");
+                    continue;
+                }
+                OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
+            } while(true);
+        }
+
         #endregion
 
         #region Properties
@@ -103,6 +124,11 @@ namespace NetSh {
         /// Commands of shell.
         /// </summary>
         public virtual List<INetShellCommand> Commands { get; }
+
+        /// <summary>
+        /// Prompt input.
+        /// </summary>
+        public string Prompt { get; set; } = "$";
 
         #endregion
     }

@@ -50,6 +50,13 @@ Add new command to commands.<br>
 ``desc``: Description of command.<br>
 ``act``: Action of command.
 
+# 
+
+```csharp
+public void Loop()
+```
+Start command loop.
+
 <br>
 
 ## Properties
@@ -58,3 +65,10 @@ Add new command to commands.<br>
 public virtual List<INetShellCommand> Commands { get; }
 ```
 Commands of shell.
+
+# 
+
+```csharp
+public virtual string Prompt { get; set; }
+```
+Prompt input.

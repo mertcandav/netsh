@@ -59,6 +59,30 @@ namespace NetSh {
 
         #endregion
 
+        #region Events
+
+#pragma warning disable CS1591
+        
+        /// <summary>
+        /// This happens before command processing.
+        /// </summary>
+        public event EventHandler<NetShellCancelEventArgs> CommandProcess;
+        protected virtual void OnCommandProcess(NetShellCancelEventArgs args) {
+            CommandProcess?.Invoke(this,args);
+        }
+
+        /// <summary>
+        /// This happens after command processed.
+        /// </summary>
+        public event EventHandler<NetShellEventArgs> CommandProcessed;
+        protected virtual void OnCommandProcessed(NetShellEventArgs args) {
+            CommandProcessed?.Invoke(this,args);
+        }
+
+#pragma warning restore CS1591
+
+        #endregion
+
         #region Members
 
         /// <summary>
@@ -82,4 +106,65 @@ namespace NetSh {
 
         #endregion
     }
+
+    #region EventArgs
+
+    /// <summary>
+    /// Event arguments for <see cref="NetShell"/>.
+    /// </summary>
+    public class NetShellEventArgs:EventArgs {
+        #region Constructors
+
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShellEventArgs"/>
+        /// </summary>
+        /// <param name="cmd"><see cref="INetShellCommand"/> of event.</param>
+        public NetShellEventArgs(INetShellCommand cmd) {
+            Cmd = cmd;
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Command of event.
+        /// </summary>
+        public virtual INetShellCommand Cmd { get; protected set; }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// Cancel event arguments for <see cref="NetShell"/>.
+    /// </summary>
+    public class NetShellCancelEventArgs:EventArgs {
+        #region Constructors
+
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShellCancelEventArgs"/>
+        /// </summary>
+        /// <param name="cmd"><see cref="INetShellCommand"/> of event.</param>
+        public NetShellCancelEventArgs(INetShellCommand cmd) {
+            Cmd = cmd;
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Command of event.
+        /// </summary>
+        public virtual INetShellCommand Cmd { get; set; }
+
+        /// <summary>
+        /// Cancel state of process.
+        /// </summary>
+        public virtual bool Cancel { get; set; }
+
+        #endregion
+    }
+
+    #endregion
 }

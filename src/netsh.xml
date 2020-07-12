@@ -117,9 +117,64 @@
             </summary>
             <param name="commands">Commands.</param>
         </member>
+        <member name="E:NetSh.NetShell.CommandProcess">
+            <summary>
+            This happens before command processing.
+            </summary>
+        </member>
+        <member name="E:NetSh.NetShell.CommandProcessed">
+            <summary>
+            This happens after command processed.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShell.AddCmd(System.String,System.String,System.Action)">
+            <summary>
+            Add new command to <see cref="P:NetSh.NetShell.Commands"/>
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="desc">Description of command.</param>
+            <param name="act">Action of command.</param>
+        </member>
         <member name="P:NetSh.NetShell.Commands">
             <summary>
             Commands of shell.
+            </summary>
+        </member>
+        <member name="T:NetSh.NetShellEventArgs">
+            <summary>
+            Event arguments for <see cref="T:NetSh.NetShell"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShellEventArgs.#ctor(NetSh.INetShellCommand)">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShellEventArgs"/>
+            </summary>
+            <param name="cmd"><see cref="T:NetSh.INetShellCommand"/> of event.</param>
+        </member>
+        <member name="P:NetSh.NetShellEventArgs.Cmd">
+            <summary>
+            Command of event.
+            </summary>
+        </member>
+        <member name="T:NetSh.NetShellCancelEventArgs">
+            <summary>
+            Cancel event arguments for <see cref="T:NetSh.NetShell"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShellCancelEventArgs.#ctor(NetSh.INetShellCommand)">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShellCancelEventArgs"/>
+            </summary>
+            <param name="cmd"><see cref="T:NetSh.INetShellCommand"/> of event.</param>
+        </member>
+        <member name="P:NetSh.NetShellCancelEventArgs.Cmd">
+            <summary>
+            Command of event.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShellCancelEventArgs.Cancel">
+            <summary>
+            Cancel state of process.
             </summary>
         </member>
         <member name="T:NetSh.NetShellCommand">

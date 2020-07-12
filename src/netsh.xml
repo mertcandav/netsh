@@ -127,10 +127,11 @@
             This happens after command processed.
             </summary>
         </member>
-        <member name="M:NetSh.NetShell.Help">
+        <member name="M:NetSh.NetShell.Help(System.Int32)">
             <summary>
             Show help.
             </summary>
+            <param name="spacecount">Whitespace count of between commands and descriptions.</param>
         </member>
         <member name="M:NetSh.NetShell.Exit">
             <summary>

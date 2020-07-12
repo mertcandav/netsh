@@ -60,9 +60,10 @@ Start command loop.
 # 
 
 ```csharp
-public virtual void Help()
+public virtual void Help(int spacecount)
 ```
 Show help.
+``spacecount``: Whitespace count of between commands and descriptions.
 
 # 
 

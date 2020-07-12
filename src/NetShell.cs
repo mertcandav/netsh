@@ -41,7 +41,7 @@ namespace NetSh {
         /// </summary>
         public NetShell() {
             Commands = new List<INetShellCommand>(new[] {
-                new NetShellCommand("help","Show help.",Help),
+                new NetShellCommand("help","Show help.",() => Help(24)),
                 new NetShellCommand("exit","Exit from shell.",Exit)
             });
         }
@@ -99,7 +99,8 @@ namespace NetSh {
         /// <summary>
         /// Show help.
         /// </summary>
-        public virtual void Help() {
+        /// <param name="spacecount">Whitespace count of between commands and descriptions.</param>
+        public virtual void Help(int spacecount) {
             string GetWS(int count) {
                 StringBuilder str = new StringBuilder();
                 for(int index = 0; index < count; index++)
@@ -107,15 +108,15 @@ namespace NetSh {
                 return str.ToString();
             }
 
-            StringBuilder strb = new StringBuilder(
-@"help                    Show helps.
-exit                    Exit from shell.");
+            int maxlen = Commands.Max(x => x.Command.Length);
+            maxlen = maxlen > spacecount ? maxlen + spacecount : spacecount;
+            StringBuilder strb = new StringBuilder();
             for(int index = 0; index < Commands.Count; index++) {
                 INetShellCommand x = Commands[index];
                 strb.AppendLine();
-                strb.Append($"{x.Command}{GetWS(24-x.Command.Length)}{x.Description}");
+                strb.Append($"{x.Command}{GetWS(maxlen-x.Command.Length)}{x.Description}");
             };
-            Console.WriteLine(strb.ToString(),Commands.Select(x => x.Description).ToArray());
+            Console.WriteLine(strb.ToString());
         }
 
         /// <summary>

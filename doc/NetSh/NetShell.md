@@ -33,6 +33,13 @@ Initialize new instance.<br>
 
 <br>
 
+## Events
+
+<b>CommandProcess</b>: This happens before command processing.<br>
+<b>CommandProcessed</b>: This happens after command processed.
+
+<br>
+
 ## Members
 
 ```csharp

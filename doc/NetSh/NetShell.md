@@ -121,12 +121,6 @@ Prompt input.
 
 # 
 
-````csharp
-public virtual NetShellArgs Args { get; set; }
-```
-
-# 
-
 ```csharp
 public virtual bool IgnoreWhiteSpace { get; set; }
 ```
@@ -134,7 +128,7 @@ Ignore whitespace at start and end on commands.
 
 # 
 
-````csharp
+```csharp
 public virtual bool IgnoreCase { get; set; }
 ```
 Ignore case on commands.

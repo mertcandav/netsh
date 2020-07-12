@@ -33,9 +33,21 @@ Initialize new instance.<br>
 
 <br>
 
+## Members
+
+```csharp
+public void AddCmd(string cmd,string desc,Action act)
+```
+Add new command to commands.<br>
+``cmd``: Command.<br>
+``desc``: Description of command.<br>
+``act``: Action of command.
+
+<br>
+
 ## Properties
 
 ```csharp
-public virtual INetShellCommand[] Commands { get; set; }
+public virtual List<INetShellCommand> Commands { get; }
 ```
 Commands of shell.

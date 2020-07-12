@@ -22,7 +22,7 @@
 
 #endregion
 
-using System.Linq;
+using System;
 using System.Collections.Generic;
 
 namespace NetSh {
@@ -36,7 +36,7 @@ namespace NetSh {
         /// Initialize new instance of <see cref="NetShell"/>
         /// </summary>
         public NetShell() {
-            Commands = new INetShellCommand[0];
+            Commands = new List<INetShellCommand>();
         }
 
         /// <summary>
@@ -45,16 +45,30 @@ namespace NetSh {
         /// <param name="commands">Commands.</param>
         public NetShell(params INetShellCommand[] commands) :
             this() {
-            Commands = commands;
+            Commands.AddRange(commands);
         }
-        
+
         /// <summary>
         /// Initialize new instance of <see cref="NetShell"/>
         /// </summary>
         /// <param name="commands">Commands.</param>
         public NetShell(IEnumerable<INetShellCommand> commands) :
             this() {
-            Commands = commands.ToArray();
+            Commands.AddRange(commands);
+        }
+
+        #endregion
+
+        #region Members
+
+        /// <summary>
+        /// Add new command to <see cref="Commands"/>
+        /// </summary>
+        /// <param name="cmd">Command.</param>
+        /// <param name="desc">Description of command.</param>
+        /// <param name="act">Action of command.</param>
+        public void AddCmd(string cmd,string desc,Action act) {
+            Commands.Add(new NetShellCommand(cmd,desc,act));
         }
 
         #endregion
@@ -64,7 +78,7 @@ namespace NetSh {
         /// <summary>
         /// Commands of shell.
         /// </summary>
-        public virtual INetShellCommand[] Commands { get; set; }
+        public virtual List<INetShellCommand> Commands { get; }
 
         #endregion
     }

@@ -23,8 +23,8 @@
 #endregion
 
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace NetSh {
@@ -69,7 +69,7 @@ namespace NetSh {
         #region Events
 
 #pragma warning disable CS1591
-        
+
         /// <summary>
         /// This happens before command processing.
         /// </summary>
@@ -113,8 +113,9 @@ namespace NetSh {
             StringBuilder strb = new StringBuilder();
             for(int index = 0; index < Commands.Count; index++) {
                 INetShellCommand x = Commands[index];
-                strb.AppendLine();
                 strb.Append($"{x.Command}{GetWS(maxlen-x.Command.Length)}{x.Description}");
+                if(index < Commands.Count-1)
+                    strb.AppendLine();
             };
             Console.WriteLine(strb.ToString());
         }
@@ -124,6 +125,29 @@ namespace NetSh {
         /// </summary>
         public virtual void Exit() {
             exit = true;
+        }
+
+        /// <summary>
+        /// Returns user input by shell settings.
+        /// </summary>
+        public virtual string GetInput() {
+            Console.Write(Prompt);
+            string input = Console.ReadLine();
+            if(IgnoreWhiteSpace)
+                input = input.Trim();
+            return input;
+        }
+
+        /// <summary>
+        /// Returns matched commands by shell settings.
+        /// </summary>
+        /// <param name="cmd">Command sample.</param>
+        public IEnumerable<INetShellCommand> GetCommands(string cmd) {
+            cmd = IgnoreWhiteSpace ? cmd.Trim() : cmd;
+            return
+                IgnoreCase ?
+                     Commands.Where(x => x.Command.ToLower() == cmd.ToLower()) :
+                     Commands.Where(x => x.Command == cmd);
         }
 
         /// <summary>
@@ -140,17 +164,23 @@ namespace NetSh {
         /// Start command loop.
         /// </summary>
         public virtual void Loop() {
-            do {
-                Console.Write(Prompt);
-                string input = Console.ReadLine();
-                IEnumerable<INetShellCommand> commands = Commands.Where(x => x.Command == input);
-                if(commands.Count() <= 0) {
-                    Console.WriteLine($"'{input}' not found command!");
-                    continue;
-                }
-                OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
-            } while(!exit);
             exit = false;
+            do {
+                PostCmd();
+            } while(!exit);
+        }
+
+        /// <summary>
+        /// Run a command shell entry.
+        /// </summary>
+        public virtual void PostCmd() {
+            string input = GetInput();
+            IEnumerable<INetShellCommand> commands = GetCommands(input);
+            if(commands.Count() <= 0) {
+                Console.WriteLine($"'{input}' not found command!");
+                return;
+            }
+            OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
         }
 
         #endregion
@@ -165,7 +195,17 @@ namespace NetSh {
         /// <summary>
         /// Prompt input.
         /// </summary>
-        public string Prompt { get; set; } = "$";
+        public virtual string Prompt { get; set; } = "$";
+
+        /// <summary>
+        /// Ignore whitespace at start and end on commands.
+        /// </summary>
+        public virtual bool IgnoreWhiteSpace { get; set; } = true;
+
+        /// <summary>
+        /// Ignore case on commands.
+        /// </summary>
+        public virtual bool IgnoreCase { get; set; } = default;
 
         #endregion
     }

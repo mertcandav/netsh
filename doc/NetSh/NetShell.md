@@ -1,10 +1,12 @@
-# NetShellCommand
+# NetShell
 
 ```csharp
 public class NetShell
 ```
 
 NetShell, shell tool.
+
+> By default, ``exit``, ``help`` and ``help [command]`` commands are defined.
 
 <br>
 
@@ -60,6 +62,13 @@ Start command loop.
 # 
 
 ```csharp
+public virtual void PostCmd()
+```
+Run a command shell entry.
+
+# 
+
+```csharp
 public virtual void Help(int spacecount)
 ```
 Show help.
@@ -71,6 +80,21 @@ Show help.
 public virtual void Exit()
 ```
 Exit from shell on next command.
+
+# 
+
+```csharp
+public virtual string GetInput()
+```
+Returns user input by shell settings.
+
+# 
+
+```csharp
+public virtual IEnumerable<INetShellCommand> GetCommands(strign cmd)
+```
+Returns matched commands by shell settings.
+``cmd``: Command sample.
 
 <br>
 
@@ -87,3 +111,23 @@ Commands of shell.
 public virtual string Prompt { get; set; }
 ```
 Prompt input.
+
+# 
+
+````csharp
+public virtual NetShellArgs Args { get; set; }
+```
+
+# 
+
+```csharp
+public virtual bool IgnoreWhiteSpace { get; set; }
+```
+Ignore whitespace at start and end on commands.
+
+# 
+
+````csharp
+public virtual bool IgnoreCase { get; set; }
+```
+Ignore case on commands.

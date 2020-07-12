@@ -138,6 +138,17 @@
             Exit from shell on next command.
             </summary>
         </member>
+        <member name="M:NetSh.NetShell.GetInput">
+            <summary>
+            Returns user input by shell settings.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShell.GetCommands(System.String)">
+            <summary>
+            Returns matched commands by shell settings.
+            </summary>
+            <param name="cmd">Command sample.</param>
+        </member>
         <member name="M:NetSh.NetShell.AddCmd(System.String,System.String,System.Action)">
             <summary>
             Add new command to <see cref="P:NetSh.NetShell.Commands"/>
@@ -151,6 +162,11 @@
             Start command loop.
             </summary>
         </member>
+        <member name="M:NetSh.NetShell.PostCmd">
+            <summary>
+            Run a command shell entry.
+            </summary>
+        </member>
         <member name="P:NetSh.NetShell.Commands">
             <summary>
             Commands of shell.
@@ -159,6 +175,16 @@
         <member name="P:NetSh.NetShell.Prompt">
             <summary>
             Prompt input.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShell.IgnoreWhiteSpace">
+            <summary>
+            Ignore whitespace at start and end on commands.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShell.IgnoreCase">
+            <summary>
+            Ignore case on commands.
             </summary>
         </member>
         <member name="T:NetSh.NetShellEventArgs">

@@ -149,6 +149,12 @@
             </summary>
             <param name="cmd">Command sample.</param>
         </member>
+        <member name="M:NetSh.NetShell.ProcessCommand(System.String)">
+            <summary>
+            Process the command and returns true if success, returns false if not.
+            </summary>
+            <param name="cmd">Command to process.</param>
+        </member>
         <member name="M:NetSh.NetShell.AddCmd(System.String,System.String,System.Action)">
             <summary>
             Add new command to <see cref="P:NetSh.NetShell.Commands"/>

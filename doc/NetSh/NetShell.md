@@ -6,7 +6,7 @@ public class NetShell
 
 NetShell, shell tool.
 
-> By default, ``exit``, ``help`` and ``help [command]`` commands are defined.
+> By default, ``clear``,``exit`` and ``help`` commands are defined.
 
 <br>
 
@@ -95,6 +95,13 @@ public virtual IEnumerable<INetShellCommand> GetCommands(strign cmd)
 ```
 Returns matched commands by shell settings.
 ``cmd``: Command sample.
+
+# 
+
+```csharp
+public virtual bool ProcessCommand(string cmd)
+```
+Process the command and returns true if success, returns false if not.
 
 <br>
 

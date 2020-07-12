@@ -42,7 +42,8 @@ namespace NetSh {
         public NetShell() {
             Commands = new List<INetShellCommand>(new[] {
                 new NetShellCommand("help","Show help.",() => Help(24)),
-                new NetShellCommand("exit","Exit from shell.",Exit)
+                new NetShellCommand("exit","Exit from shell.",Exit),
+                new NetShellCommand("clear","Clear shell screen.",Console.Clear)
             });
         }
 
@@ -142,12 +143,26 @@ namespace NetSh {
         /// Returns matched commands by shell settings.
         /// </summary>
         /// <param name="cmd">Command sample.</param>
-        public IEnumerable<INetShellCommand> GetCommands(string cmd) {
+        public virtual IEnumerable<INetShellCommand> GetCommands(string cmd) {
             cmd = IgnoreWhiteSpace ? cmd.Trim() : cmd;
             return
                 IgnoreCase ?
                      Commands.Where(x => x.Command.ToLower() == cmd.ToLower()) :
                      Commands.Where(x => x.Command == cmd);
+        }
+
+        /// <summary>
+        /// Process the command and returns true if success, returns false if not.
+        /// </summary>
+        /// <param name="cmd">Command to process.</param>
+        public virtual bool ProcessCommand(string cmd) {
+            IEnumerable<INetShellCommand> commands = GetCommands(cmd);
+            if(commands.Count() <= 0) {
+                Console.WriteLine($"'{cmd}' not found command!");
+                return false;
+            }
+            OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
+            return true;
         }
 
         /// <summary>
@@ -175,12 +190,7 @@ namespace NetSh {
         /// </summary>
         public virtual void PostCmd() {
             string input = GetInput();
-            IEnumerable<INetShellCommand> commands = GetCommands(input);
-            if(commands.Count() <= 0) {
-                Console.WriteLine($"'{input}' not found command!");
-                return;
-            }
-            OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
+            ProcessCommand(input);
         }
 
         #endregion

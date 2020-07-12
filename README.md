@@ -21,3 +21,43 @@
     <td>4 or higher</td>
   </tr>
 </table>
+
+<br>
+
+## Quick Start
+
+Use this namespace(s).
+```csharp
+using NetSh;
+```
+
+Define your shell tool.
+```csharp
+NetShell shell = new NetShell();
+shell.Prompt = "MyShell$ ";
+```
+
+Define your test command and start shell loop.
+```csharp
+shell.AddCmd("Foo", "My test command.", () => {
+    Console.WriteLine("Bar");
+});
+shell.Loop();
+```
+
+Try ``Foo`` command.
+```
+MyShell$ Foo
+Bar
+MyShell$ 
+```
+
+Try ``Help`` command.
+```csharp
+MyShell$ Help
+help                    Show help.
+exit                    Exit from shell.
+Foo                     My test command.
+MyShell$ 
+```
+Have fun!

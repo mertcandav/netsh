@@ -57,6 +57,7 @@ Try ``Help`` command.
 MyShell$ Help
 help                    Show help.
 exit                    Exit from shell.
+clear                   Clear shell screen.
 Foo                     My test command.
 MyShell$ 
 ```

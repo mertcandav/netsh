@@ -127,6 +127,16 @@
             This happens after command processed.
             </summary>
         </member>
+        <member name="M:NetSh.NetShell.Help">
+            <summary>
+            Show help.
+            </summary>
+        </member>
+        <member name="M:NetSh.NetShell.Exit">
+            <summary>
+            Exit from shell on next command.
+            </summary>
+        </member>
         <member name="M:NetSh.NetShell.AddCmd(System.String,System.String,System.Action)">
             <summary>
             Add new command to <see cref="P:NetSh.NetShell.Commands"/>

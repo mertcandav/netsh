@@ -47,6 +47,9 @@ module main =
         //let shell = new NetShell();
         //shell.Prompt <- "SHELL$ ";
         //shell.AddCmd("BEEP","Beep console.",new Action(beep));
+        //shell.AddCmd("BEEPBEEP","Beep beep console.",new Action(beepbeep));
+        //shell.AddCmd("foo","Beep console.",new Action(beep));
+        //shell.AddCmd("BEEPaaaaaaaaa","Beep console.",new Action(beep));
         //shell.Loop();
 
         0;

@@ -43,7 +43,7 @@ Initialize new instance.<br>
 ## Members
 
 ```csharp
-public void AddCmd(string cmd,string desc,Action act)
+public virtual void AddCmd(string cmd,string desc,Action act)
 ```
 Add new command to commands.<br>
 ``cmd``: Command.<br>
@@ -53,9 +53,23 @@ Add new command to commands.<br>
 # 
 
 ```csharp
-public void Loop()
+public virtual void Loop()
 ```
 Start command loop.
+
+# 
+
+```csharp
+public virtual void Help()
+```
+Show help.
+
+# 
+
+```csharp
+public virtual void Exit()
+```
+Exit from shell on next command.
 
 <br>
 

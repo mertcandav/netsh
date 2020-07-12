@@ -25,19 +25,25 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text;
 
 namespace NetSh {
     /// <summary>
     /// NetShell, shell tool.
     /// </summary>
     public class NetShell {
+        private bool exit = default;
+
         #region Constructors
 
         /// <summary>
         /// Initialize new instance of <see cref="NetShell"/>
         /// </summary>
         public NetShell() {
-            Commands = new List<INetShellCommand>();
+            Commands = new List<INetShellCommand>(new[] {
+                new NetShellCommand("help","Show help.",Help),
+                new NetShellCommand("exit","Exit from shell.",Exit)
+            });
         }
 
         /// <summary>
@@ -91,19 +97,48 @@ namespace NetSh {
         #region Members
 
         /// <summary>
+        /// Show help.
+        /// </summary>
+        public virtual void Help() {
+            string GetWS(int count) {
+                StringBuilder str = new StringBuilder();
+                for(int index = 0; index < count; index++)
+                    str.Append(" ");
+                return str.ToString();
+            }
+
+            StringBuilder strb = new StringBuilder(
+@"help                    Show helps.
+exit                    Exit from shell.");
+            for(int index = 0; index < Commands.Count; index++) {
+                INetShellCommand x = Commands[index];
+                strb.AppendLine();
+                strb.Append($"{x.Command}{GetWS(24-x.Command.Length)}{x.Description}");
+            };
+            Console.WriteLine(strb.ToString(),Commands.Select(x => x.Description).ToArray());
+        }
+
+        /// <summary>
+        /// Exit from shell on next command.
+        /// </summary>
+        public virtual void Exit() {
+            exit = true;
+        }
+
+        /// <summary>
         /// Add new command to <see cref="Commands"/>
         /// </summary>
         /// <param name="cmd">Command.</param>
         /// <param name="desc">Description of command.</param>
         /// <param name="act">Action of command.</param>
-        public void AddCmd(string cmd,string desc,Action act) {
+        public virtual void AddCmd(string cmd,string desc,Action act) {
             Commands.Add(new NetShellCommand(cmd,desc,act));
         }
 
         /// <summary>
         /// Start command loop.
         /// </summary>
-        public void Loop() {
+        public virtual void Loop() {
             do {
                 Console.Write(Prompt);
                 string input = Console.ReadLine();
@@ -113,7 +148,8 @@ namespace NetSh {
                     continue;
                 }
                 OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
-            } while(true);
+            } while(!exit);
+            exit = false;
         }
 
         #endregion

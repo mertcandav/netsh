@@ -56,6 +56,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh.Tools", "NetSh.Tools"
 		doc\NetSh.Tools\ParameterEngine.md = doc\NetSh.Tools\ParameterEngine.md
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "exshell", "exshell\exshell.fsproj", "{3ABB258B-BCAB-4BCF-9771-6D5F25A085B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{EBEE0BB3-842D-4CF9-8B18-F15A9C1385A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBEE0BB3-842D-4CF9-8B18-F15A9C1385A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBEE0BB3-842D-4CF9-8B18-F15A9C1385A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ABB258B-BCAB-4BCF-9771-6D5F25A085B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ABB258B-BCAB-4BCF-9771-6D5F25A085B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ABB258B-BCAB-4BCF-9771-6D5F25A085B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ABB258B-BCAB-4BCF-9771-6D5F25A085B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,22 +8,6 @@
 
 <br>
 
-## Compatibility
-<table>
-  <tr>
-    <td>.NET Standard</td>
-    <td>.NET Core</td>
-    <td>.NET Framework</td>
-  </tr>
-  <tr>
-    <td>1.3 or higher</td>
-    <td>1.1 or higher</td>
-    <td>4 or higher</td>
-  </tr>
-</table>
-
-<br>
-
 ## Quick Start
 
 Use this namespace(s).

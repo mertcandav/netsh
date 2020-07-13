@@ -91,6 +91,22 @@ namespace NetSh {
             CommandProcessed?.Invoke(this,args);
         }
 
+        /// <summary>
+        /// This happens before <see cref="Prompt"/> print.
+        /// </summary>
+        public event EventHandler<EventArgs> BeforePrompt;
+        protected virtual void OnBeforePrompt(EventArgs e) {
+            BeforePrompt?.Invoke(this,e);
+        }
+
+        /// <summary>
+        /// This happens after <see cref="Prompt"/> print.
+        /// </summary>
+        public event EventHandler<EventArgs> AfterPrompt;
+        protected virtual void OnAfterPrompt(EventArgs e) {
+            AfterPrompt?.Invoke(this,e);
+        }
+
 #pragma warning restore CS1591
 
         #endregion
@@ -133,7 +149,10 @@ namespace NetSh {
         /// Returns user input by shell settings.
         /// </summary>
         public virtual string GetInput() {
+            OnBeforePrompt(default);
             Console.Write(Prompt);
+            OnAfterPrompt(default);
+
             string input = Console.ReadLine();
             if(IgnoreWhiteSpace)
                 input = input.Trim();

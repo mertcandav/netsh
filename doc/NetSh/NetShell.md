@@ -38,7 +38,9 @@ Initialize new instance.<br>
 ## Events
 
 <b>CommandProcess</b>: This happens before command processing.<br>
-<b>CommandProcessed</b>: This happens after command processed.
+<b>CommandProcessed</b>: This happens after command processed.<br>
+<b>BeforePrompt</b>: This happens before Prompt print.<br>
+<b>AfterPrompt</b>: This happens after Prompt print.
 
 <br>
 

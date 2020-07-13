@@ -41,6 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh", "NetSh", "{8BD62066
 		doc\NetSh\NetShellCancelEventArgs.md = doc\NetSh\NetShellCancelEventArgs.md
 		doc\NetSh\NetShellCommand.md = doc\NetSh\NetShellCommand.md
 		doc\NetSh\NetShellEventArgs.md = doc\NetSh\NetShellEventArgs.md
+		doc\NetSh\NetShellMode.md = doc\NetSh\NetShellMode.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh.Extensions", "NetSh.Extensions", "{7462A780-E8C5-4BDA-9D78-41D42D088E69}"

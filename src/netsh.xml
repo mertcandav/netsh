@@ -193,6 +193,11 @@
             Ignore case on commands.
             </summary>
         </member>
+        <member name="P:NetSh.NetShell.Mode">
+            <summary>
+            Mode of shell.
+            </summary>
+        </member>
         <member name="T:NetSh.NetShellEventArgs">
             <summary>
             Event arguments for <see cref="T:NetSh.NetShell"/>.
@@ -228,6 +233,21 @@
         <member name="P:NetSh.NetShellCancelEventArgs.Cancel">
             <summary>
             Cancel state of process.
+            </summary>
+        </member>
+        <member name="T:NetSh.NetShellMode">
+            <summary>
+            Modes of <see cref="T:NetSh.NetShell"/>.
+            </summary>
+        </member>
+        <member name="F:NetSh.NetShellMode.FullMatch">
+            <summary>
+            It works as a result of a complete match of the command.
+            </summary>
+        </member>
+        <member name="F:NetSh.NetShellMode.Namespace">
+            <summary>
+            It is enough to start with the command. Suitable mode for parameterized commands.
             </summary>
         </member>
         <member name="T:NetSh.NetShellCommand">

@@ -79,7 +79,7 @@ namespace NetSh {
             CommandProcess?.Invoke(this,args);
             if(!args.Cancel) {
                 args.Cmd.Action.Invoke();
-                OnCommandProcessed(new NetShellEventArgs(args.Cmd));
+                OnCommandProcessed(new NetShellEventArgs(args.Cmd,args.Input));
             }
         }
 
@@ -102,6 +102,7 @@ namespace NetSh {
         /// </summary>
         /// <param name="spacecount">Whitespace count of between commands and descriptions.</param>
         public virtual void Help(int spacecount) {
+            // Returns whitespace string b count.
             string GetWS(int count) {
                 StringBuilder str = new StringBuilder();
                 for(int index = 0; index < count; index++)
@@ -145,10 +146,24 @@ namespace NetSh {
         /// <param name="cmd">Command sample.</param>
         public virtual IEnumerable<INetShellCommand> GetCommands(string cmd) {
             cmd = IgnoreWhiteSpace ? cmd.Trim() : cmd;
-            return
-                IgnoreCase ?
-                     Commands.Where(x => x.Command.ToLower() == cmd.ToLower()) :
-                     Commands.Where(x => x.Command == cmd);
+            cmd = IgnoreCase ? cmd.ToLower() : cmd;
+            switch(Mode) {
+                case NetShellMode.FullMatch:
+                    switch(IgnoreCase) {
+                        case true:
+                            string lowercmd = cmd.ToLower();
+                            return Commands.Where(x => x.Command.ToLower() == lowercmd);
+                        default:
+                            return Commands.Where(x => x.Command == cmd);
+                    }
+                default:
+                    switch(IgnoreCase) {
+                        case true:
+                            return Commands.Where(x => cmd.StartsWith(x.Command.ToLower()));
+                        default:
+                            return Commands.Where(x => cmd.StartsWith(x.Command));
+                    }
+            }
         }
 
         /// <summary>
@@ -161,7 +176,7 @@ namespace NetSh {
                 Console.WriteLine($"'{cmd}' not found command!");
                 return false;
             }
-            OnCommandProcess(new NetShellCancelEventArgs(commands.First()));
+            OnCommandProcess(new NetShellCancelEventArgs(commands.First(),cmd));
             return true;
         }
 
@@ -217,6 +232,11 @@ namespace NetSh {
         /// </summary>
         public virtual bool IgnoreCase { get; set; } = default;
 
+        /// <summary>
+        /// Mode of shell.
+        /// </summary>
+        public virtual NetShellMode Mode { get; set; } = default;
+
         #endregion
     }
 
@@ -234,6 +254,17 @@ namespace NetSh {
         /// <param name="cmd"><see cref="INetShellCommand"/> of event.</param>
         public NetShellEventArgs(INetShellCommand cmd) {
             Cmd = cmd;
+            Input = cmd.Command;
+        }
+
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShellEventArgs"/>
+        /// </summary>
+        /// <param name="cmd"><see cref="INetShellCommand"/> of event.</param>
+        /// <param name="input">Inputted command.</param>
+        public NetShellEventArgs(INetShellCommand cmd,string input) {
+            Cmd = cmd;
+            Input = input;
         }
 
         #endregion
@@ -244,6 +275,11 @@ namespace NetSh {
         /// Command of event.
         /// </summary>
         public virtual INetShellCommand Cmd { get; protected set; }
+
+        /// <summary>
+        /// Inputted command.
+        /// </summary>
+        public virtual string Input { get; protected set; }
 
         #endregion
     }
@@ -260,6 +296,17 @@ namespace NetSh {
         /// <param name="cmd"><see cref="INetShellCommand"/> of event.</param>
         public NetShellCancelEventArgs(INetShellCommand cmd) {
             Cmd = cmd;
+            Input = cmd.Command;
+        }
+
+        /// <summary>
+        /// Initialize new instance of <see cref="NetShellEventArgs"/>
+        /// </summary>
+        /// <param name="cmd"><see cref="INetShellCommand"/> of event.</param>
+        /// <param name="input">Inputted command.</param>
+        public NetShellCancelEventArgs(INetShellCommand cmd,string input) {
+            Cmd = cmd;
+            Input = input;
         }
 
         #endregion
@@ -276,8 +323,27 @@ namespace NetSh {
         /// </summary>
         public virtual bool Cancel { get; set; }
 
+        /// <summary>
+        /// Inputted command.
+        /// </summary>
+        public virtual string Input { get; set; }
+
         #endregion
     }
 
     #endregion
+
+    /// <summary>
+    /// Modes of <see cref="NetShell"/>.
+    /// </summary>
+    public enum NetShellMode {
+        /// <summary>
+        /// It works as a result of a complete match of the command.
+        /// </summary>
+        FullMatch = 0,
+        /// <summary>
+        /// It is enough to start with the command. Suitable mode for parameterized commands.
+        /// </summary>
+        Namespace = 1
+    }
 }

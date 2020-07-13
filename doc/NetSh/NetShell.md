@@ -132,3 +132,10 @@ Ignore whitespace at start and end on commands.
 public virtual bool IgnoreCase { get; set; }
 ```
 Ignore case on commands.
+
+# 
+
+````csharp
+public virtual NetShellMode Mode { get; set; }
+```
+Mode of shell.

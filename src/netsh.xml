@@ -209,9 +209,21 @@
             </summary>
             <param name="cmd"><see cref="T:NetSh.INetShellCommand"/> of event.</param>
         </member>
+        <member name="M:NetSh.NetShellEventArgs.#ctor(NetSh.INetShellCommand,System.String)">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShellEventArgs"/>
+            </summary>
+            <param name="cmd"><see cref="T:NetSh.INetShellCommand"/> of event.</param>
+            <param name="input">Inputted command.</param>
+        </member>
         <member name="P:NetSh.NetShellEventArgs.Cmd">
             <summary>
             Command of event.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShellEventArgs.Input">
+            <summary>
+            Inputted command.
             </summary>
         </member>
         <member name="T:NetSh.NetShellCancelEventArgs">
@@ -225,6 +237,13 @@
             </summary>
             <param name="cmd"><see cref="T:NetSh.INetShellCommand"/> of event.</param>
         </member>
+        <member name="M:NetSh.NetShellCancelEventArgs.#ctor(NetSh.INetShellCommand,System.String)">
+            <summary>
+            Initialize new instance of <see cref="T:NetSh.NetShellEventArgs"/>
+            </summary>
+            <param name="cmd"><see cref="T:NetSh.INetShellCommand"/> of event.</param>
+            <param name="input">Inputted command.</param>
+        </member>
         <member name="P:NetSh.NetShellCancelEventArgs.Cmd">
             <summary>
             Command of event.
@@ -233,6 +252,11 @@
         <member name="P:NetSh.NetShellCancelEventArgs.Cancel">
             <summary>
             Cancel state of process.
+            </summary>
+        </member>
+        <member name="P:NetSh.NetShellCancelEventArgs.Input">
+            <summary>
+            Inputted command.
             </summary>
         </member>
         <member name="T:NetSh.NetShellMode">
@@ -290,6 +314,51 @@
             <summary>
             Action of command.
             </summary>
+        </member>
+        <member name="T:NetSh.Tools.ParameterEngine">
+            <summary>
+            Parameter engine of <see cref="T:NetSh.NetShell"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.Tools.ParameterEngine.GetNamespace(System.String)">
+            <summary>
+            Returns namesapce of command.
+            </summary>
+            <param name="cmd">Command.</param>
+        </member>
+        <member name="M:NetSh.Tools.ParameterEngine.RemoveNamespace(System.String)">
+            <summary>
+            Returns removed namesapce command.
+            </summary>
+            <param name="cmd">Command.</param>
+        </member>
+        <member name="M:NetSh.Tools.ParameterEngine.GetParameters(System.String,System.String)">
+            <summary>
+            Returns parameter(s) of command.
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="delimiter">Parameter delimiter.</param>
+        </member>
+        <member name="M:NetSh.Tools.ParameterEngine.GetParameters(System.String,System.Text.RegularExpressions.Regex)">
+            <summary>
+            Returns parameter(s) of command.
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="pattern">Pattern of parameters.</param>
+        </member>
+        <member name="M:NetSh.Tools.ParameterEngine.RemoveParameters(System.String,System.String)">
+            <summary>
+            Returns removed parameters command.
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="delimiter">Parameter delimiter.</param>
+        </member>
+        <member name="M:NetSh.Tools.ParameterEngine.RemoveParameters(System.String,System.Text.RegularExpressions.Regex)">
+            <summary>
+            Returns removed parameters command.
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="pattern">Pattern of parameters.</param>
         </member>
     </members>
 </doc>

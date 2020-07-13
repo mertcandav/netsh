@@ -6,6 +6,7 @@ open System.Collections;
 open System.Collections.Generic;
 open NetSh;
 open NetSh.Extensions;
+open NetSh.Tools;
 
 module main =
     let beep() =
@@ -14,6 +15,11 @@ module main =
     let beepbeep() =
         Console.Beep();
         Console.Beep();
+
+    let listargs(cmd: string) =
+        let args = cmd.GetParameters("-");
+        for arg in args do
+            arg.WriteLine();
 
     [<EntryPoint>]
     let main argv =
@@ -44,14 +50,28 @@ module main =
         //GenericExtensions.Write(coll);
         //GenericExtensions.WriteLine(coll);
 
-        let mutable shell = new NetShell();
-        shell.Prompt <- "SHELL$ ";
-        shell.IgnoreCase <- true;
-        shell.Mode <- NetShellMode.Namespace;
-        shell.AddCmd("BEEP","Beep console.",new Action(beep));
-        shell.AddCmd("BEEPBEEP","Beep beep console.",new Action(beepbeep));
-        shell.AddCmd("foo","Beep console.",new Action(beep));
-        shell.AddCmd("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Beep console.",new Action(beep));
-        shell.Loop();
+        //let mutable shell = new NetShell();
+        //shell.Prompt <- "SHELL$ ";
+        //shell.IgnoreCase <- true;
+        //shell.Mode <- NetShellMode.Namespace;
+        //shell.AddCmd("BEEP","Beep console.",new Action(beep));
+        //shell.AddCmd("BEEPBEEP","Beep beep console.",new Action(beepbeep));
+        //shell.AddCmd("foo","Beep console.",new Action(beep));
+        //shell.AddCmd("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Beep console.",new Action(beep));
+        //shell.Loop();
+
+        //let mutable str = "beep -two -owo-mon -foo";
+        //let args = str.GetParameters("-");
+        //for arg in args do
+        //    arg.WriteLine();
+
+        //let mutable str = "beep -foo -bar -let";
+        //str.RemoveParameters("-").WriteLine();
+
+        //let mutable str = "TestNamespace -arg0 -arg1 -arg2";
+        //"test".RemoveNamespace().WriteLine();
+        //"testest".GetNamespace().WriteLine();
+        //str.WriteLine();
+        //str.RemoveNamespace().WriteLine();
 
         0;

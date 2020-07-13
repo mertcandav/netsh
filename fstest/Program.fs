@@ -2,6 +2,7 @@
 
 open System;
 open System.Threading;
+open System.Threading.Tasks;
 open System.Collections;
 open System.Collections.Generic;
 open NetSh;
@@ -20,6 +21,9 @@ module main =
         let args = cmd.GetParameters("-");
         for arg in args do
             arg.WriteLine();
+
+    let BeforePrompt(e: EventArgs) =
+        Console.WriteLine(e.GetHashCode());
 
     [<EntryPoint>]
     let main argv =
@@ -73,5 +77,10 @@ module main =
         //"testest".GetNamespace().WriteLine();
         //str.WriteLine();
         //str.RemoveNamespace().WriteLine();
+
+        //let mutable shell = new NetShell();
+        //shell.Prompt <- "MyShell$";
+        //shell.BeforePrompt.Add(BeforePrompt);
+        //shell.Loop();
 
         0;

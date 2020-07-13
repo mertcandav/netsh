@@ -149,9 +149,9 @@ namespace NetSh {
         /// Returns user input by shell settings.
         /// </summary>
         public virtual string GetInput() {
-            OnBeforePrompt(default);
+            OnBeforePrompt(new EventArgs());
             Console.Write(Prompt);
-            OnAfterPrompt(default);
+            OnAfterPrompt(new EventArgs());
 
             string input = Console.ReadLine();
             if(IgnoreWhiteSpace)

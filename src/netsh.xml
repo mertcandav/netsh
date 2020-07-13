@@ -127,6 +127,16 @@
             This happens after command processed.
             </summary>
         </member>
+        <member name="E:NetSh.NetShell.BeforePrompt">
+            <summary>
+            This happens before <see cref="P:NetSh.NetShell.Prompt"/> print.
+            </summary>
+        </member>
+        <member name="E:NetSh.NetShell.AfterPrompt">
+            <summary>
+            This happens after <see cref="P:NetSh.NetShell.Prompt"/> print.
+            </summary>
+        </member>
         <member name="M:NetSh.NetShell.Help(System.Int32)">
             <summary>
             Show help.

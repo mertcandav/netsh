@@ -190,6 +190,8 @@ namespace NetSh {
         /// </summary>
         /// <param name="cmd">Command to process.</param>
         public virtual bool ProcessCommand(string cmd) {
+            if(string.IsNullOrWhiteSpace(cmd))
+                return false;
             IEnumerable<INetShellCommand> commands = GetCommands(cmd);
             if(commands.Count() <= 0) {
                 Console.WriteLine($"'{cmd}' not found command!");

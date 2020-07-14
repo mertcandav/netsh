@@ -47,7 +47,7 @@ Initialize new instance.<br>
 ## Members
 
 ```csharp
-public virtual void AddCmd(string cmd,string desc,Action act)
+public virtual void AddCmd(string cmd,string desc,Action<INetShellCommand,string> act)
 ```
 Add new command to commands.<br>
 ``cmd``: Command.<br>

@@ -165,7 +165,7 @@
             </summary>
             <param name="cmd">Command to process.</param>
         </member>
-        <member name="M:NetSh.NetShell.AddCmd(System.String,System.String,System.Action)">
+        <member name="M:NetSh.NetShell.AddCmd(System.String,System.String,System.Action{NetSh.INetShellCommand,System.String})">
             <summary>
             Add new command to <see cref="P:NetSh.NetShell.Commands"/>
             </summary>
@@ -302,7 +302,7 @@
             <param name="cmd">Command.</param>
             <param name="desc">Description.</param>
         </member>
-        <member name="M:NetSh.NetShellCommand.#ctor(System.String,System.String,System.Action)">
+        <member name="M:NetSh.NetShellCommand.#ctor(System.String,System.String,System.Action{NetSh.INetShellCommand,System.String})">
             <summary>
             Initialize new instance of <see cref="T:NetSh.NetShellCommand"/>
             </summary>

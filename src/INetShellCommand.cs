@@ -20,7 +20,7 @@ namespace NetSh {
         /// <summary>
         /// Action of command.
         /// </summary>
-        Action Action { get; set; }
+        Action<INetShellCommand,string> Action { get; set; }
 
         #endregion
     }

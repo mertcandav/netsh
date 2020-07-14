@@ -23,7 +23,7 @@ shell.Prompt = "MyShell$ ";
 
 Define your test command and start shell loop.
 ```csharp
-shell.AddCmd("Foo", "My test command.", () => {
+shell.AddCmd("Foo", "My test command.", (cmd,input) => {
     Console.WriteLine("Bar");
 });
 shell.Loop();

@@ -54,6 +54,6 @@ Description of command.
 # 
 
 ```csharp
-public virtual Action Action { get; set; }
+public virtual Action<INetShellCommand,sring> Action { get; set; }
 ```
 Action of command.

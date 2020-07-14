@@ -41,9 +41,9 @@ namespace NetSh {
         /// </summary>
         public NetShell() {
             Commands = new List<INetShellCommand>(new[] {
-                new NetShellCommand("help","Show help.",() => Help(24)),
-                new NetShellCommand("exit","Exit from shell.",Exit),
-                new NetShellCommand("clear","Clear shell screen.",Console.Clear)
+                new NetShellCommand("help","Show help.",(arg1,arg2) => Help(24)),
+                new NetShellCommand("exit","Exit from shell.",(arg1,arg2) => Exit()),
+                new NetShellCommand("clear","Clear shell screen.",(arg1,arg2) => Console.Clear())
             });
         }
 
@@ -78,7 +78,7 @@ namespace NetSh {
         protected virtual void OnCommandProcess(NetShellCancelEventArgs args) {
             CommandProcess?.Invoke(this,args);
             if(!args.Cancel) {
-                args.Cmd.Action.Invoke();
+                args.Cmd.Action.Invoke(args.Cmd,args.Input);
                 OnCommandProcessed(new NetShellEventArgs(args.Cmd,args.Input));
             }
         }
@@ -207,7 +207,7 @@ namespace NetSh {
         /// <param name="cmd">Command.</param>
         /// <param name="desc">Description of command.</param>
         /// <param name="act">Action of command.</param>
-        public virtual void AddCmd(string cmd,string desc,Action act) {
+        public virtual void AddCmd(string cmd,string desc,Action<INetShellCommand,string> act) {
             Commands.Add(new NetShellCommand(cmd,desc,act));
         }
 

@@ -55,7 +55,7 @@ namespace NetSh {
         /// <param name="cmd">Command.</param>
         /// <param name="desc">Description.</param>
         /// <param name="act">Action.</param>
-        public NetShellCommand(string cmd,string desc,Action act) :
+        public NetShellCommand(string cmd,string desc,Action<INetShellCommand,string> act) :
             this(cmd,desc) {
             Action = act;
         }
@@ -77,7 +77,7 @@ namespace NetSh {
         /// <summary>
         /// Action of command.
         /// </summary>
-        public virtual Action Action { get; set; }
+        public virtual Action<INetShellCommand,string> Action { get; set; }
 
         #endregion
     }

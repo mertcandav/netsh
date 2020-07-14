@@ -25,7 +25,7 @@ Description of command.
 # 
 
 ```csharp
-Action Action { get; set; }
+Action<INetShellCommand,string> Action { get; set; }
 ```
 Action of command.
 

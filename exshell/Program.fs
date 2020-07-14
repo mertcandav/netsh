@@ -19,8 +19,16 @@
 //SOFTWARE.
 
 open System;
+open NetSh;
+open NetSh.Tools;
+open NetSh.Extensions;
 
 [<EntryPoint>]
 let main argv =
-    printfn "ExShell";
+    let mutable shell = new NetShell();
+    shell.Prompt <- (__SOURCE_DIRECTORY__ + "$ ");
+    shell.IgnoreCase <- true;
+    shell.IgnoreWhiteSpace <- true;
+    shell.Loop();
+
     0;

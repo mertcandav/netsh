@@ -54,6 +54,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh.Tools", "NetSh.Tools", "{C8B32DD8-B937-4C35-BF7C-8EC67BE70646}"
 	ProjectSection(SolutionItems) = preProject
 		doc\NetSh.Tools\ParameterEngine.md = doc\NetSh.Tools\ParameterEngine.md
+		doc\NetSh.Tools\Printer.md = doc\NetSh.Tools\Printer.md
 	EndProjectSection
 EndProject
 Global

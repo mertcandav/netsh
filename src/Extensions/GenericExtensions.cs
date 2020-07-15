@@ -5,15 +5,14 @@ using ienum = System.Collections.IEnumerable;
 
 namespace NetSh.Extensions {
     /// <summary>
-    /// Extension functions for <see cref="T"/> samples.
+    /// Generic extension functions.
     /// </summary>
-    /// <typeparam name="T">Type of object.</typeparam>
-    public static class GenericExtensions<T> {
+    public static class GenericExtensions {
         /// <summary>
         /// Write.
         /// </summary>
-        /// <param name="obj"><see cref="T"/> to write.</param>
-        public static void Write(T obj) {
+        /// <param name="obj">Object to write.</param>
+        public static void Write(this object obj) {
             if(obj is ienum && !(obj is string))
                 IEnumerable.Write(obj as ienum);
             else
@@ -23,8 +22,8 @@ namespace NetSh.Extensions {
         /// <summary>
         /// WriteLine.
         /// </summary>
-        /// <param name="obj"><see cref="T"/> to write.</param>
-        public static void WriteLine(T obj) {
+        /// <param name="obj">Object to write.</param>
+        public static void WriteLine(this object obj) {
             if(obj is ienum && !(obj is string))
                 IEnumerable.WriteLine(obj as ienum);
             else

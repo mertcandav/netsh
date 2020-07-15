@@ -83,4 +83,14 @@ module main =
         //shell.BeforePrompt.Add(BeforePrompt);
         //shell.Loop();
 
+        //Printer.Print("Print Test");
+        //Printer.Println("Println Test");
+        
+        //Printer.Print("Print colored test",ConsoleColor.Yellow);
+        //Printer.Println("Println colored test",ConsoleColor.Green);
+        //Printer.Println("Color test");
+
+        //"Test".Println();
+        //"Test colored".Println(ConsoleColor.Green);
+
         0;

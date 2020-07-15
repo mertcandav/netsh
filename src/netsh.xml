@@ -4,23 +4,22 @@
         <name>netsh</name>
     </assembly>
     <members>
-        <member name="T:NetSh.Extensions.GenericExtensions`1">
+        <member name="T:NetSh.Extensions.GenericExtensions">
             <summary>
-            Extension functions for <see cref="!:T"/> samples.
+            Generic extension functions.
             </summary>
-            <typeparam name="T">Type of object.</typeparam>
         </member>
-        <member name="M:NetSh.Extensions.GenericExtensions`1.Write(`0)">
+        <member name="M:NetSh.Extensions.GenericExtensions.Write(System.Object)">
             <summary>
             Write.
             </summary>
-            <param name="obj"><see cref="!:T"/> to write.</param>
+            <param name="obj">Object to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.GenericExtensions`1.WriteLine(`0)">
+        <member name="M:NetSh.Extensions.GenericExtensions.WriteLine(System.Object)">
             <summary>
             WriteLine.
             </summary>
-            <param name="obj"><see cref="!:T"/> to write.</param>
+            <param name="obj">Object to write.</param>
         </member>
         <member name="T:NetSh.Extensions.IEnumerable">
             <summary>
@@ -369,6 +368,37 @@
             </summary>
             <param name="cmd">Command.</param>
             <param name="pattern">Pattern of parameters.</param>
+        </member>
+        <member name="T:NetSh.Tools.Printer">
+            <summary>
+            Console printer of <see cref="T:NetSh.NetShell"/>.
+            </summary>
+        </member>
+        <member name="M:NetSh.Tools.Printer.Print(System.Object)">
+            <summary>
+            Print object to screen.
+            </summary>
+            <param name="obj">Object to print.</param>
+        </member>
+        <member name="M:NetSh.Tools.Printer.Print(System.Object,System.ConsoleColor)">
+            <summary>
+            Print object to screen.
+            </summary>
+            <param name="obj">Object to print.</param>
+            <param name="color">Color of print.</param>
+        </member>
+        <member name="M:NetSh.Tools.Printer.Println(System.Object)">
+            <summary>
+            Print object and new line to screen.
+            </summary>
+            <param name="obj">Object to print.</param>
+        </member>
+        <member name="M:NetSh.Tools.Printer.Println(System.Object,System.ConsoleColor)">
+            <summary>
+            Print object and new line to screen.
+            </summary>
+            <param name="obj">Object to print.</param>
+            <param name="color">Color of print.</param>
         </member>
     </members>
 </doc>

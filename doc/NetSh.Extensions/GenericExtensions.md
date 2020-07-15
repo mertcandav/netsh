@@ -1,7 +1,7 @@
 # GenericExtensions
 
 ```csharp
-public static class GenericExtensions<T>
+public static class GenericExtensions
 ```
 
 Adds plugin functions for all types.
@@ -11,14 +11,14 @@ Adds plugin functions for all types.
 ## Members
 
 ```csharp
-public static void Write(T obj)
+public static void Write(this object obj)
 ```
 If the value characterizes the ``IEnumerable`` interface, it prints all items side by side (except for the ``string``). If not, it prints the value directly.
 
 # 
 
 ```csharp
-public static void WriteLine(T obj)
+public static void WriteLine(this object obj)
 ```
 If the value characterizes the ``IEnumerable`` interface, it prints all items line by line (except for the ``string``). If not, it prints the value directly.
 

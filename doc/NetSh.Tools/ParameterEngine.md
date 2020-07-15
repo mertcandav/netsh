@@ -63,7 +63,7 @@ Returns removed parameters command.<br>
 ## Example
 
 ```csharp
-using NetSh.Extensions;
+using NetSh.Tools;
 
 namespace Example {
     public static class Program {

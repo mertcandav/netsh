@@ -34,7 +34,7 @@ namespace NetSh.Extensions {
                 str.Append(item);
                 str.Append(sep);
             }
-            str[str.Length-1] = '\0';
+            //str[str.Length-1] = '\0';
             return str.ToString();
         }
     }

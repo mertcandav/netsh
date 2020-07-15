@@ -22,9 +22,17 @@ module SNetShell
 
 open System;
 open NetSh;
+open NetSh.Tools;
+open NetSh.Extensions;
 
 type SNetShell() =
     inherit NetShell()
+
+    override this.ProcessCommand(command: string) =
+        if command = ".." then
+            base.ProcessCommand("cd ..");
+        else
+            base.ProcessCommand(command);
 
     override this.Help(spacecount: int) =
         printfn "";

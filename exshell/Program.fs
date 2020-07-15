@@ -14,8 +14,18 @@ let AfterPrompt(e: EventArgs) =
 [<EntryPoint>]
 let main(argv) =
     printfn "Example Shell of NetShell";
+    shell.Mode <- NetShellMode.Namespace;
     shell.Prompt <- __SOURCE_DIRECTORY__;
     shell.AfterPrompt.Add(AfterPrompt);
+    shell.AddCmd("cd","Manage current path.",fun (command:INetShellCommand) (input:string) ->
+        let mutable cmd = input.RemoveNamespace().Trim();
+        if cmd = ".." then
+            shell.Prompt <- path.previous(shell.Prompt);
+        else if cmd = "" then
+            "Command is not defined!".Println(ConsoleColor.Red);
+        else
+            shell.Prompt <- path.join(shell.Prompt,cmd);
+        );
     shell.Loop();
 
     0;

@@ -124,6 +124,13 @@ Prompt input.
 # 
 
 ```csharp
+public virtual ConsoleColor PromptColor { get; set; }
+```
+Color of Prompt.
+
+# 
+
+```csharp
 public virtual bool IgnoreWhiteSpace { get; set; }
 ```
 Ignore whitespace at start and end on commands.

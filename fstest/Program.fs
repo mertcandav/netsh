@@ -93,4 +93,8 @@ module main =
         //"Test".Println();
         //"Test colored".Println(ConsoleColor.Green);
 
+        //let mutable shell = new NetShell();
+        //shell.Prompt <- "Test$ ";
+        //shell.Loop();
+
         0;

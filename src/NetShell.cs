@@ -26,6 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NetSh.Tools;
 
 namespace NetSh {
     /// <summary>
@@ -150,7 +151,7 @@ namespace NetSh {
         /// </summary>
         public virtual string GetInput() {
             OnBeforePrompt(new EventArgs());
-            Console.Write(Prompt);
+            Prompt.Print(PromptColor);
             OnAfterPrompt(new EventArgs());
 
             string input = Console.ReadLine();
@@ -242,6 +243,11 @@ namespace NetSh {
         /// Prompt input.
         /// </summary>
         public virtual string Prompt { get; set; } = "$";
+
+        /// <summary>
+        /// Color of <see cref="Prompt"/>.
+        /// </summary>
+        public virtual ConsoleColor PromptColor { get; set; } = ConsoleColor.Yellow;
 
         /// <summary>
         /// Ignore whitespace at start and end on commands.

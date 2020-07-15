@@ -192,6 +192,11 @@
             Prompt input.
             </summary>
         </member>
+        <member name="P:NetSh.NetShell.PromptColor">
+            <summary>
+            Color of <see cref="P:NetSh.NetShell.Prompt"/>.
+            </summary>
+        </member>
         <member name="P:NetSh.NetShell.IgnoreWhiteSpace">
             <summary>
             Ignore whitespace at start and end on commands.

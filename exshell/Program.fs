@@ -82,17 +82,42 @@ let main(argv) =
             let mutable processes = Process.GetProcesses();
             let mutable max = processes.Max(fun (x: Process) ->
                 x.Id.ToString().Length) + 10;
-            "ID".Print();
+            "ID".Print(ConsoleColor.Cyan);
             GetWS(max - 2).Print();
-            "Name\n".Println();
+            "Name\n".Println(ConsoleColor.Cyan);
             for ``process`` in processes do
-                ``process``.Id.Print();
+                ``process``.Id.Print(ConsoleColor.White);
                 GetWS(max - ``process``.Id.ToString().Length).Print();
-                ``process``.ProcessName.Println();
+                ``process``.ProcessName.Println(ConsoleColor.Gray);
         else
             messager.error("'" + input + "' is not defined!");
-        
         );
+    shell.AddCmd("sysinfo","Show system summary.",fun (command: INetShellCommand) (input: string) ->
+        "Machine Name                        ".Print(ConsoleColor.White);
+        Environment.MachineName.Println(ConsoleColor.Gray);
+        "User Domain Name                    ".Print(ConsoleColor.White);
+        Environment.UserDomainName.Println(ConsoleColor.Gray);
+        "User Name                           ".Print(ConsoleColor.White);
+        Environment.UserName.Println(ConsoleColor.Gray);
+        "User Interactive                    ".Print(ConsoleColor.White);
+        Environment.UserInteractive.Println(ConsoleColor.Gray);
+        "Operating System Version            ".Print(ConsoleColor.White);
+        Environment.OSVersion.Println(ConsoleColor.Gray);
+        "Is 64-Bit Operating System          ".Print(ConsoleColor.White);
+        Environment.Is64BitOperatingSystem.Println(ConsoleColor.Gray);
+        "Is 64-Bit Processor                 ".Print(ConsoleColor.White);
+        Environment.Is64BitProcess.Println(ConsoleColor.Gray);
+        "Processor core count                ".Print(ConsoleColor.White);
+        Environment.ProcessorCount.Println(ConsoleColor.Gray);
+        "Memory Size(Mb)                     ".Print(ConsoleColor.White);
+        Environment.SystemPageSize.Println(ConsoleColor.Gray);
+        "Memory Size(Gb)                     ".Print(ConsoleColor.White);
+        (Environment.SystemPageSize / 1024).Println(ConsoleColor.Gray);
+        "Working Set                         ".Print(ConsoleColor.White);
+        Environment.WorkingSet.Println(ConsoleColor.Gray);
+        "System Directory                    ".Print(ConsoleColor.White);
+        Environment.SystemDirectory.Println(ConsoleColor.Gray);
+    );
     shell.Loop();
 
     0;

@@ -25,6 +25,9 @@ module main =
     let BeforePrompt(e: EventArgs) =
         Console.WriteLine(e.GetHashCode());
 
+    let print(command: INetShellCommand,input: string) =
+        printf "";
+
     [<EntryPoint>]
     let main argv =
         printfn "F# test application";
@@ -95,6 +98,14 @@ module main =
 
         //let mutable shell = new NetShell();
         //shell.Prompt <- "Test$ ";
+        //shell.Loop();
+
+        //let mutable shell = new NetShell();
+        //shell.Prompt <- "~~$ ";
+        //shell.Mode <- NetShellMode.Namespace;
+        //shell.AddCmd("print","Print message to screen.",fun(command: INetShellCommand) (input: string) ->
+        //    printf ""
+        //    );
         //shell.Loop();
 
         0;

@@ -21,6 +21,8 @@
 module SNetShell
 
 open System;
+open System.Linq;
+open System.IO;
 open NetSh;
 open NetSh.Tools;
 open NetSh.Extensions;
@@ -38,3 +40,15 @@ type SNetShell() =
         printfn "";
         base.Help(spacecount);
         printfn "";
+
+    override this.Prompt
+        with get() = base.Prompt
+        and set(value: string) =
+            let mutable parts = value.Split(Path.DirectorySeparatorChar);
+            let mutable npath = parts.First();
+            for part in parts.Skip(1) do
+                if part = ".." then
+                    npath <- path.previous(npath);
+                else
+                    npath <- (npath + Path.DirectorySeparatorChar.ToString() + part);
+            base.Prompt <- npath;

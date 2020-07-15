@@ -21,6 +21,7 @@
 module path
 
 open System;
+open System.Linq;
 open System.IO;
 open System.Text.RegularExpressions;
 open NetSh.Tools;

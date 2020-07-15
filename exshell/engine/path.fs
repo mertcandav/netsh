@@ -25,10 +25,14 @@ open System.IO;
 open System.Text.RegularExpressions;
 open NetSh.Tools;
 
+let format(path: string) : string =
+    let mutable pattern = new Regex("\\\\|/",RegexOptions.IgnoreCase ||| RegexOptions.Singleline);
+    let mutable npath = pattern.Replace(path,Path.DirectorySeparatorChar.ToString());
+    npath;
+
 let previous(path: string) : string =
-    let pattern = new Regex("\\|/");
     let mutable path = path;
-    path <- pattern.Replace(path,Path.DirectorySeparatorChar.ToString());
+    path <- format(path);
     let mutable index = path.LastIndexOf(Path.DirectorySeparatorChar);
     if index > -1 then
         path <- path.Substring(0,index);
@@ -36,8 +40,9 @@ let previous(path: string) : string =
 
 let join(path: string,name: string) =
     let mutable npath = Path.Combine(path,name);
+    npath <- format(npath);
     if Directory.Exists(npath) = false then
-        "Directory is not exists this name!".Println(ConsoleColor.Red);
+        "Directory is not exists this path!".Println(ConsoleColor.Red);
         path;
     else
         npath;

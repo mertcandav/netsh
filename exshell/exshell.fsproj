@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="engine\messager.fs" />
     <Compile Include="engine\path.fs" />
     <Compile Include="SNetShell.fs" />
     <Compile Include="Program.fs" />

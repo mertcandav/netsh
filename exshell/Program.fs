@@ -19,6 +19,9 @@
 //SOFTWARE.
 
 open System;
+open System.Linq;
+open System.Diagnostics;
+open System.Text;
 open System.Collections;
 open System.Collections.Generic;
 open System.IO;
@@ -49,21 +52,46 @@ let main(argv) =
         );
     shell.AddCmd("ls","List this directory.",fun (command: INetShellCommand) (input: string) ->
         let mutable cmd = input.RemoveNamespace();
-        if input.ToLower() = "ls" then
-            cmd <- "ls -f -d";
-        let mutable parameters = cmd.GetParameters("-");
-        for cparam in parameters do
-            let mutable param = cparam.Trim().ToLower();
-            if param = "-f" then
-                Directory.GetFiles(shell.Prompt).WriteLine();
-            else if param = "-d" then
-                Directory.GetDirectories(shell.Prompt).WriteLine();
-            else
-                printfn "'%s' is not defined!" cparam;
+        if cmd.RemoveParameters("-") = "" = false then
+            messager.error("'" + input + "' is not defined!");
+        else
+            if input.ToLower() = "ls" then
+                cmd <- "ls -f -d";
+            let mutable parameters = cmd.GetParameters("-");
+            for cparam in parameters do
+                let mutable param = cparam.Trim().ToLower();
+                if param = "-f" then
+                    Directory.GetFiles(shell.Prompt).WriteLine();
+                else if param = "-d" then
+                    Directory.GetDirectories(shell.Prompt).WriteLine();
+                else
+                    messager.error("'" + cparam + "' is not defined!");
         );
     shell.AddCmd("echo","Print message to screen.",fun (command: INetShellCommand) (input: string) ->
         let mutable message = input.RemoveNamespace();
         message.Println();
+        );
+    shell.AddCmd("processes","List processes.",fun (command: INetShellCommand) (input: string) ->
+        if input.Equals("processes",StringComparison.CurrentCultureIgnoreCase) then
+            let GetWS(spacecount: int) : string =
+                let mutable builder = new StringBuilder();
+                for _ in [ 1 .. spacecount ] do
+                    builder <- builder.Append(" ");
+                builder.ToString();
+
+            let mutable processes = Process.GetProcesses();
+            let mutable max = processes.Max(fun (x: Process) ->
+                x.Id.ToString().Length) + 10;
+            "ID".Print();
+            GetWS(max - 2).Print();
+            "Name\n".Println();
+            for ``process`` in processes do
+                ``process``.Id.Print();
+                GetWS(max - ``process``.Id.ToString().Length).Print();
+                ``process``.ProcessName.Println();
+        else
+            messager.error("'" + input + "' is not defined!");
+        
         );
     shell.Loop();
 

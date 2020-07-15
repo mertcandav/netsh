@@ -41,6 +41,10 @@ let main(argv) =
             else
                 printfn "'%s' is not defined!" cparam;
         );
+    shell.AddCmd("echo","Print message to screen.",fun (command: INetShellCommand) (input: string) ->
+        let mutable message = input.RemoveNamespace();
+        message.Println();
+        );
     shell.Loop();
 
     0;

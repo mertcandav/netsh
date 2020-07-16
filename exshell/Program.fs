@@ -130,7 +130,7 @@ let main(argv) =
             else
                 let mutable info = Directory.CreateDirectory(_path);
                 "Created '".Print(ConsoleColor.Green);
-                command.Print(ConsoleColor.White);
+                info.Name.Print(ConsoleColor.White);
                 "' directory successfully!".Println(ConsoleColor.Green);
     );
     shell.AddCmd("rmdir","Remove directory.",fun (command: INetShellCommand) (input: string) ->
@@ -145,6 +145,22 @@ let main(argv) =
             "Deleted '".Print(ConsoleColor.Green);
             command.Print(ConsoleColor.White);
             "' directory successfully!".Println(ConsoleColor.Green);
+    );
+    shell.AddCmd("mkfile","Create file.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + "' is not defined!");
+        else
+            let mutable _path = shell.Prompt;
+            _path <- path.join(_path,command);
+            if File.Exists(_path) then
+                messager.error("Alrady exists this file.");
+            else
+                let mutable info = File.Create(_path);
+                "Created '".Print(ConsoleColor.Green);
+                command.Print(ConsoleColor.White);
+                info.Dispose();
+                "' file successfully!".Println(ConsoleColor.Green);
     );
     shell.Loop();
 

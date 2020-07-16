@@ -133,7 +133,7 @@ let main(argv) =
                 info.Name.Print(ConsoleColor.White);
                 "' directory successfully!".Println(ConsoleColor.Green);
     );
-    shell.AddCmd("rmdir","Remove directory.",fun (command: INetShellCommand) (input: string) ->
+    shell.AddCmd("rmdir","Delete directory.",fun (command: INetShellCommand) (input: string) ->
         let mutable command = input.RemoveNamespace();
         if command = String.Empty then
             messager.error("'" + input + "' is not defined!");
@@ -141,7 +141,7 @@ let main(argv) =
             let mutable _path = shell.Prompt;
             _path <- path.join(_path,command);
             if Directory.Exists(_path) then
-                Directory.Delete(_path);
+                Directory.Delete(_path,true);
             "Deleted '".Print(ConsoleColor.Green);
             command.Print(ConsoleColor.White);
             "' directory successfully!".Println(ConsoleColor.Green);
@@ -161,6 +161,19 @@ let main(argv) =
                 command.Print(ConsoleColor.White);
                 info.Dispose();
                 "' file successfully!".Println(ConsoleColor.Green);
+    );
+    shell.AddCmd("rmfile","Delete file.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + "' is not defined!");
+        else
+            let mutable _path = shell.Prompt;
+            _path <- path.join(_path,command);
+            if File.Exists(_path) then
+                File.Delete(_path);
+            "Deleted '".Print(ConsoleColor.Green);
+            command.Print(ConsoleColor.White);
+            "' file successfully!".Println(ConsoleColor.Green);
     );
     shell.Loop();
 

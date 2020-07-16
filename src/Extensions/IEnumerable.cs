@@ -8,18 +8,18 @@ namespace NetSh.Extensions {
     /// </summary>
     public static class IEnumerable {
         /// <summary>
-        /// Write all items of <see cref="ienum"/>.
+        /// Prints all items of <see cref="ienum"/>.
         /// </summary>
         /// <param name="collection">Collection to write.</param>
-        public static void Write(this ienum collection) {
+        public static void Print(this ienum collection) {
             Console.Write(collection.GetValue(' '));
         }
 
         /// <summary>
-        /// WriteLine all items of <see cref="ienum"/>.
+        /// Prints all items line by line of <see cref="ienum"/>.
         /// </summary>
         /// <param name="collection">Collection to write.</param>
-        public static void WriteLine(this ienum collection) {
+        public static void Println(this ienum collection) {
             Console.Write(collection.GetValue('\n'));
         }
 

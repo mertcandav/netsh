@@ -1,33 +1,58 @@
 ﻿#pragma warning disable CS1723
 
-using System;
+using CLI = System.Console;
+using CLIColor = System.ConsoleColor;
 using ienum = System.Collections.IEnumerable;
 
 namespace NetSh.Extensions {
     /// <summary>
-    /// Generic extension functions.
+    /// Generic extension functions of <see cref="NetShell"/>.
     /// </summary>
     public static class GenericExtensions {
         /// <summary>
-        /// Write.
+        /// Print object to screen.
         /// </summary>
-        /// <param name="obj">Object to write.</param>
-        public static void Write(this object obj) {
+        /// <param name="obj">Object to print.</param>
+        public static void Print(this object obj) {
             if(obj is ienum && !(obj is string))
-                IEnumerable.Write(obj as ienum);
+                IEnumerable.Print(obj as ienum);
             else
-                Console.Write(obj);
+                CLI.Write(obj);
         }
 
         /// <summary>
-        /// WriteLine.
+        /// Print object to screen.
         /// </summary>
-        /// <param name="obj">Object to write.</param>
-        public static void WriteLine(this object obj) {
+        /// <param name="obj">Object to print.</param>
+        /// <param name="color">Color of print.</param>
+        public static void Print(this object obj,CLIColor color) {
+            CLIColor rcolor = CLI.ForegroundColor;
+            CLI.ForegroundColor = color;
+            Print(obj);
+            CLI.ForegroundColor = rcolor;
+        }
+
+        /// <summary>
+        /// Print object and new line to screen.
+        /// </summary>
+        /// <param name="obj">Object to print.</param>
+        public static void Println(this object obj) {
             if(obj is ienum && !(obj is string))
-                IEnumerable.WriteLine(obj as ienum);
+                IEnumerable.Println(obj as ienum);
             else
-                Console.WriteLine(obj);
+                CLI.WriteLine(obj);
+        }
+
+        /// <summary>
+        /// Print object and new line to screen.
+        /// </summary>
+        /// <param name="obj">Object to print.</param>
+        /// <param name="color">Color of print.</param>
+        public static void Println(this object obj,CLIColor color) {
+            CLIColor rcolor = CLI.ForegroundColor;
+            CLI.ForegroundColor = color;
+            Println(obj);
+            CLI.ForegroundColor = rcolor;
         }
     }
 }

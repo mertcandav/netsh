@@ -11,14 +11,14 @@ Adds plugin functions for IEnumerable interface.
 ## Members
 
 ```csharp
-public static void Write(this System.Collections.IEnumerable collection)
+public static void Print(this System.Collections.IEnumerable collection)
 ```
 Prints all items side by side.
 
 # 
 
 ```csharp
-public static void WriteLine(this System.Collections.IEnumerable collection)
+public static void Println(this System.Collections.IEnumerable collection)
 ```
 Prints all items line by line.
 
@@ -38,15 +38,15 @@ namespace Example {
     public static class Program {
         public static void Main() {
             var mystr = "My string";
-            IEnumerable.Write(mystr); // or mystr WriteChars();
+            IEnumerable.Print(mystr); // or mystr.PrintChars();
 
             var mycoll = new string[] {
                 "My",
                 "string",
                 "collection"
             };
-            IEnumerable.WriteLine(mycoll); // or mycoll.WriteLine();
-            Console.Write(IEnumerable.GetValue(mycoll,' ') // or mycoll.GetValue(' '));
+            IEnumerable.Println(mycoll); // or mycoll.Println();
+            Console.Write(IEnumerable.GetValue(mycoll,' ') /* or mycoll.GetValue(' ')*/);
         }
     }
 }

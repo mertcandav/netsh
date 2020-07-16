@@ -61,9 +61,9 @@ let main(argv) =
             for cparam in parameters do
                 let mutable param = cparam.Trim().ToLower();
                 if param = "-f" then
-                    Directory.GetFiles(shell.Prompt).WriteLine();
+                    Directory.GetFiles(shell.Prompt).Println();
                 else if param = "-d" then
-                    Directory.GetDirectories(shell.Prompt).WriteLine();
+                    Directory.GetDirectories(shell.Prompt).Println();
                 else
                     messager.error("'" + cparam + "' is not defined!");
         );

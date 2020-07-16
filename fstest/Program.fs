@@ -40,7 +40,7 @@ module main =
     let listargs(cmd: string) =
         let args = cmd.GetParameters("-");
         for arg in args do
-            arg.WriteLine();
+            arg.Println();
 
     let BeforePrompt(e: EventArgs) =
         Console.WriteLine(e.GetHashCode());

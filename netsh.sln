@@ -54,10 +54,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetSh.Tools", "NetSh.Tools", "{C8B32DD8-B937-4C35-BF7C-8EC67BE70646}"
 	ProjectSection(SolutionItems) = preProject
 		doc\NetSh.Tools\ParameterEngine.md = doc\NetSh.Tools\ParameterEngine.md
-		doc\NetSh.Tools\Printer.md = doc\NetSh.Tools\Printer.md
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "exshell", "exshell\exshell.fsproj", "{F60C1BC1-C6FF-4933-9880-19585B8C6FA2}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "exshell", "exshell\exshell.fsproj", "{F60C1BC1-C6FF-4933-9880-19585B8C6FA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

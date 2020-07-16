@@ -24,6 +24,7 @@ open System;
 open System.Linq;
 open System.IO;
 open System.Text.RegularExpressions;
+open NetSh.Extensions;
 open NetSh.Tools;
 
 let format(path: string) : string =

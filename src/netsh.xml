@@ -6,35 +6,49 @@
     <members>
         <member name="T:NetSh.Extensions.GenericExtensions">
             <summary>
-            Generic extension functions.
+            Generic extension functions of <see cref="T:NetSh.NetShell"/>.
             </summary>
         </member>
-        <member name="M:NetSh.Extensions.GenericExtensions.Write(System.Object)">
+        <member name="M:NetSh.Extensions.GenericExtensions.Print(System.Object)">
             <summary>
-            Write.
+            Print object to screen.
             </summary>
-            <param name="obj">Object to write.</param>
+            <param name="obj">Object to print.</param>
         </member>
-        <member name="M:NetSh.Extensions.GenericExtensions.WriteLine(System.Object)">
+        <member name="M:NetSh.Extensions.GenericExtensions.Print(System.Object,System.ConsoleColor)">
             <summary>
-            WriteLine.
+            Print object to screen.
             </summary>
-            <param name="obj">Object to write.</param>
+            <param name="obj">Object to print.</param>
+            <param name="color">Color of print.</param>
+        </member>
+        <member name="M:NetSh.Extensions.GenericExtensions.Println(System.Object)">
+            <summary>
+            Print object and new line to screen.
+            </summary>
+            <param name="obj">Object to print.</param>
+        </member>
+        <member name="M:NetSh.Extensions.GenericExtensions.Println(System.Object,System.ConsoleColor)">
+            <summary>
+            Print object and new line to screen.
+            </summary>
+            <param name="obj">Object to print.</param>
+            <param name="color">Color of print.</param>
         </member>
         <member name="T:NetSh.Extensions.IEnumerable">
             <summary>
             Extension functions for <see cref="T:System.Collections.IEnumerable"/> samples.
             </summary>
         </member>
-        <member name="M:NetSh.Extensions.IEnumerable.Write(System.Collections.IEnumerable)">
+        <member name="M:NetSh.Extensions.IEnumerable.Print(System.Collections.IEnumerable)">
             <summary>
-            Write all items of <see cref="T:System.Collections.IEnumerable"/>.
+            Prints all items of <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <param name="collection">Collection to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.IEnumerable.WriteLine(System.Collections.IEnumerable)">
+        <member name="M:NetSh.Extensions.IEnumerable.Println(System.Collections.IEnumerable)">
             <summary>
-            WriteLine all items of <see cref="T:System.Collections.IEnumerable"/>.
+            Prints all items line by line of <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <param name="collection">Collection to write.</param>
         </member>
@@ -50,25 +64,25 @@
             Extension functions for <see cref="T:System.String"/> samples.
             </summary>
         </member>
-        <member name="M:NetSh.Extensions.String.Write(System.String)">
+        <member name="M:NetSh.Extensions.String.Print(System.String)">
             <summary>
             Write.
             </summary>
             <param name="str"><see cref="T:System.String"/> to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.String.WriteLine(System.String)">
+        <member name="M:NetSh.Extensions.String.Println(System.String)">
             <summary>
             WriteLine.
             </summary>
             <param name="str"><see cref="T:System.String"/> to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.String.WriteChars(System.String)">
+        <member name="M:NetSh.Extensions.String.PrintChars(System.String)">
             <summary>
             Write characters.
             </summary>
             <param name="str"><see cref="T:System.String"/> to write.</param>
         </member>
-        <member name="M:NetSh.Extensions.String.WriteLineChars(System.String)">
+        <member name="M:NetSh.Extensions.String.PrintlnChars(System.String)">
             <summary>
             WriteLine characters.
             </summary>
@@ -373,37 +387,6 @@
             </summary>
             <param name="cmd">Command.</param>
             <param name="pattern">Pattern of parameters.</param>
-        </member>
-        <member name="T:NetSh.Tools.Printer">
-            <summary>
-            Console printer of <see cref="T:NetSh.NetShell"/>.
-            </summary>
-        </member>
-        <member name="M:NetSh.Tools.Printer.Print(System.Object)">
-            <summary>
-            Print object to screen.
-            </summary>
-            <param name="obj">Object to print.</param>
-        </member>
-        <member name="M:NetSh.Tools.Printer.Print(System.Object,System.ConsoleColor)">
-            <summary>
-            Print object to screen.
-            </summary>
-            <param name="obj">Object to print.</param>
-            <param name="color">Color of print.</param>
-        </member>
-        <member name="M:NetSh.Tools.Printer.Println(System.Object)">
-            <summary>
-            Print object and new line to screen.
-            </summary>
-            <param name="obj">Object to print.</param>
-        </member>
-        <member name="M:NetSh.Tools.Printer.Println(System.Object,System.ConsoleColor)">
-            <summary>
-            Print object and new line to screen.
-            </summary>
-            <param name="obj">Object to print.</param>
-            <param name="color">Color of print.</param>
         </member>
     </members>
 </doc>

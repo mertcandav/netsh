@@ -11,16 +11,36 @@ Adds plugin functions for all types.
 ## Members
 
 ```csharp
-public static void Write(this object obj)
+public static void Print(this object obj)
 ```
 If the value characterizes the ``IEnumerable`` interface, it prints all items side by side (except for the ``string``). If not, it prints the value directly.
+``obj``: Object to print.
 
 # 
 
 ```csharp
-public static void WriteLine(this object obj)
+public static void Print(this object obj,ConsoleColor color)
+```
+If the value characterizes the ``IEnumerable`` interface, it prints all items side by side (except for the ``string``). If not, it prints the value directly.
+``obj``: Object to print.
+```color``: Forground color.
+
+# 
+
+```csharp
+public static void Println(this object obj)
 ```
 If the value characterizes the ``IEnumerable`` interface, it prints all items line by line (except for the ``string``). If not, it prints the value directly.
+``obj``: Object to print.
+
+# 
+
+```csharp
+public static void Println(this object obj,ConsoleColor color)
+```
+If the value characterizes the ``IEnumerable`` interface, it prints all items line by line (except for the ``string``). If not, it prints the value directly.
+``obj``: Object to print.
+``color``: Foreground color.
 
 ## Example
 
@@ -31,15 +51,15 @@ namespace Example {
     public static class Program {
         public static void Main() {
             var mystr = "My string";
-            mystr.Write();
-            "\n-----\n".Write();
+            mystr.Print();
+            "\n-----\n".Print();
 
             var mycoll = new string[] {
                 "My",
                 "string",
                 "collection"
             };
-            mycoll.WriteLine();
+            mycoll.Println();
         }
     }
 }

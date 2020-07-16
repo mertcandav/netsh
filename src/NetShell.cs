@@ -26,7 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NetSh.Tools;
+using NetSh.Extensions;
 
 namespace NetSh {
     /// <summary>

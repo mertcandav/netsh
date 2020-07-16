@@ -9,7 +9,7 @@ namespace NetSh.Extensions {
         /// Write.
         /// </summary>
         /// <param name="str"><see cref="string"/> to write.</param>
-        public static void Write(this string str) {
+        public static void Print(this string str) {
             Console.Write(str);
         }
 
@@ -17,7 +17,7 @@ namespace NetSh.Extensions {
         /// WriteLine.
         /// </summary>
         /// <param name="str"><see cref="string"/> to write.</param>
-        public static void WriteLine(this string str) {
+        public static void Println(this string str) {
             Console.WriteLine(str);
         }
 
@@ -25,16 +25,16 @@ namespace NetSh.Extensions {
         /// Write characters.
         /// </summary>
         /// <param name="str"><see cref="string"/> to write.</param>
-        public static void WriteChars(this string str) {
-            IEnumerable.Write(str);
+        public static void PrintChars(this string str) {
+            IEnumerable.Print(str);
         }
 
         /// <summary>
         /// WriteLine characters.
         /// </summary>
         /// <param name="str"><see cref="string"/> to write.</param>
-        public static void WriteLineChars(this string str) {
-            IEnumerable.WriteLine(str);
+        public static void PrintlnChars(this string str) {
+            IEnumerable.Println(str);
         }
     }
 }

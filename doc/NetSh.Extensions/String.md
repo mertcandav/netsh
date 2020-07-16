@@ -11,28 +11,28 @@ Adds plugin functions for strings.
 ## Members
 
 ```csharp
-public static void Write(this string str)
+public static void Print(this string str)
 ```
 Print console.
 
 # 
 
 ```csharp
-public static void WriteLine(this string str)
+public static void Println(this string str)
 ```
 Print console and new line.
 
 #
 
 ```csharp
-public static void WriteChars(this string str)
+public static void PrintChars(this string str)
 ```
 Prints all charcters side by side.
 
 #
 
 ```csharp
-public static void WriteLineChars(this string str)
+public static void PrintlnChars(this string str)
 ```
 Prints all charcters line by line.
 
@@ -45,10 +45,10 @@ namespace Example {
     public static class Program {
         public static void Main() {
             var mystr = "My string";
-            mystr.Write();
+            mystr.Print();
 
-            "\n---".WriteLine();
-            "ABCDEFG".WriteChars();
+            "\n---".Println();
+            "ABCDEFG".PrintChars();
         }
     }
 }

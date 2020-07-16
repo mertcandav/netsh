@@ -25,6 +25,7 @@ open System.Text;
 open NetSh;
 open NetSh.Extensions;
 open NetSh.Tools;
+open System.Runtime.CompilerServices
 
 let getwhitespace(spacecount: int) : string =
     let mutable builder = new StringBuilder();
@@ -32,3 +33,12 @@ let getwhitespace(spacecount: int) : string =
         builder <- builder.Append(" ");
     builder.ToString();
 
+[<Extension>]
+type System.String with
+    [<Extension>]
+    static member lower(value: string) =
+        value.ToLower();
+
+    [<Extension>]
+    static member upper(value: string) =
+        value.ToUpper();

@@ -208,6 +208,18 @@ let main(argv) =
             let mutable path = path.join(shell.Prompt,command);
             File.Exists(path).Println();        
     );
+    shell.AddCmd("date","Show date.",fun (command: INetShellCommand) (input: string) ->
+        if input.ToLower() = "date" then
+            DateTime.Now.Println();
+        else
+            messager.error("'" + input + "' is not defined!");
+    );
+    shell.AddCmd("utcdate","Show UTC date.",fun (command: INetShellCommand) (input: string) ->
+        if input.ToLower() = "utcdate" then
+            DateTime.UtcNow.Println();
+        else
+            messager.error("'" + input + "' is not defined!");
+    );
     shell.Loop();
 
     0;

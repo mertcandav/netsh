@@ -73,16 +73,26 @@ let main(argv) =
         );
     shell.AddCmd("processes","List processes.",fun (command: INetShellCommand) (input: string) ->
         if input.Equals("processes",StringComparison.CurrentCultureIgnoreCase) then
-            let mutable processes = Process.GetProcesses();
+            let mutable processes = Process.GetProcesses().OrderBy(fun (x: Process) -> x.ProcessName);
             let mutable max = processes.Max(fun (x: Process) ->
                 x.Id.ToString().Length) + 10;
+            let mutable namemax = processes.Max(fun (x: Process) ->
+                x.ProcessName.Length) + 10;
             "ID".Print(ConsoleColor.Cyan);
             str.getwhitespace(max - 2).Print();
-            "Name\n".Println(ConsoleColor.Cyan);
+            "Name".Print(ConsoleColor.Cyan);
+            str.getwhitespace(namemax - 4).Print();
+            "Priority Class\n".Println(ConsoleColor.Cyan);
             for ``process`` in processes do
                 ``process``.Id.Print(ConsoleColor.White);
                 str.getwhitespace(max - ``process``.Id.ToString().Length).Print();
-                ``process``.ProcessName.Println(ConsoleColor.Gray);
+                ``process``.ProcessName.Print(ConsoleColor.Gray);
+                str.getwhitespace(namemax - ``process``.ProcessName.Length).Print();
+                try
+                    ``process``.PriorityClass.Println(ConsoleColor.Gray);
+                with
+                    | :? System.ComponentModel.Win32Exception -> messager.warning("Access denied");
+                    | :? Exception -> messager.error("Error");
         else
             messager.error("'" + input + "' is not defined!");
         );

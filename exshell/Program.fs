@@ -73,21 +73,15 @@ let main(argv) =
         );
     shell.AddCmd("processes","List processes.",fun (command: INetShellCommand) (input: string) ->
         if input.Equals("processes",StringComparison.CurrentCultureIgnoreCase) then
-            let GetWS(spacecount: int) : string =
-                let mutable builder = new StringBuilder();
-                for _ in [ 1 .. spacecount ] do
-                    builder <- builder.Append(" ");
-                builder.ToString();
-
             let mutable processes = Process.GetProcesses();
             let mutable max = processes.Max(fun (x: Process) ->
                 x.Id.ToString().Length) + 10;
             "ID".Print(ConsoleColor.Cyan);
-            GetWS(max - 2).Print();
+            str.getwhitespace(max - 2).Print();
             "Name\n".Println(ConsoleColor.Cyan);
             for ``process`` in processes do
                 ``process``.Id.Print(ConsoleColor.White);
-                GetWS(max - ``process``.Id.ToString().Length).Print();
+                str.getwhitespace(max - ``process``.Id.ToString().Length).Print();
                 ``process``.ProcessName.Println(ConsoleColor.Gray);
         else
             messager.error("'" + input + "' is not defined!");
@@ -187,6 +181,14 @@ let main(argv) =
                 content.Println();
             else
                 messager.error("Not exists this file.");
+    );
+    shell.AddCmd("exdir","Exists directory.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + " is not defined!");
+        else
+            let mutable path = path.join(shell.Prompt,command);
+            Directory.Exists(path).Println();
     );
     shell.Loop();
 

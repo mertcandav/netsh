@@ -175,6 +175,19 @@ let main(argv) =
             command.Print(ConsoleColor.White);
             "' file successfully!".Println(ConsoleColor.Green);
     );
+    shell.AddCmd("print","Print content of file.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + "' is not defined!");
+        else
+            let mutable _path = shell.Prompt;
+            _path <- path.join(_path,command);
+            if File.Exists(_path) then
+                let mutable content = File.ReadAllText(_path);
+                content.Println();
+            else
+                messager.error("Not exists this file.");
+    );
     shell.Loop();
 
     0;

@@ -190,6 +190,14 @@ let main(argv) =
             let mutable path = path.join(shell.Prompt,command);
             Directory.Exists(path).Println();
     );
+    shell.AddCmd("exfile","Exists file.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + " is not defined!");
+        else
+            let mutable path = path.join(shell.Prompt,command);
+            File.Exists(path).Println();        
+    );
     shell.Loop();
 
     0;

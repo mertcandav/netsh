@@ -29,6 +29,7 @@ open NetSh;
 open NetSh.Tools;
 open NetSh.Extensions;
 open SNetShell;
+open dict;
 
 let mutable shell = new SNetShell();
 
@@ -217,6 +218,22 @@ let main(argv) =
     shell.AddCmd("utcdate","Show UTC date.",fun (command: INetShellCommand) (input: string) ->
         if input.ToLower() = "utcdate" then
             DateTime.UtcNow.Println();
+        else
+            messager.error("'" + input + "' is not defined!");
+    );
+    shell.AddCmd("vars","Show system variables.",fun (command: INetShellCommand) (input: string) ->
+        if input.ToLower() = "vars" then
+            let mutable vars = Environment.GetEnvironmentVariables() :?> Hashtable;
+            let mutable max = getmaxkey(vars) + 20;
+            "Variable".Print(ConsoleColor.Cyan);
+            str.getwhitespace(max - 8).Print();
+            "Value(s)".Println(ConsoleColor.Cyan);
+            let mutable index = 0;
+            for key in vars.Keys do
+                key.Print();
+                str.getwhitespace(max - key.ToString().Length).Print();
+                getkeyvalue(vars,index).Println();
+                index <- index + 1;
         else
             messager.error("'" + input + "' is not defined!");
     );

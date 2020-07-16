@@ -48,7 +48,7 @@ let main(argv) =
         else if cmd = "" then
             "Command is not defined!".Println(ConsoleColor.Red);
         else
-            shell.Prompt <- path.join(shell.Prompt,cmd);
+            shell.Prompt <- path.joinexists(shell.Prompt,cmd);
         );
     shell.AddCmd("ls","List this directory.",fun (command: INetShellCommand) (input: string) ->
         let mutable cmd = input.RemoveNamespace();
@@ -117,6 +117,19 @@ let main(argv) =
         Environment.WorkingSet.Println(ConsoleColor.Gray);
         "System Directory                    ".Print(ConsoleColor.White);
         Environment.SystemDirectory.Println(ConsoleColor.Gray);
+    );
+    shell.AddCmd("mkdir","Create directory.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + "' is not defined!");
+        else
+            let mutable _path = shell.Prompt;
+            _path <- path.join(_path,command);
+            if Directory.Exists(_path) then
+                messager.error("Alrady exists this directory.");
+            else
+                let mutable info = Directory.CreateDirectory(_path);
+                printf "";
     );
     shell.Loop();
 

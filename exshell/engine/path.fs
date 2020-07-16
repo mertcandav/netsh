@@ -40,7 +40,7 @@ let previous(path: string) : string =
         path <- path.Substring(0,index);
     path;
 
-let join(path: string,name: string) =
+let joinexists(path: string,name: string) =
     let mutable npath = Path.Combine(path,name);
     npath <- format(npath);
     if Directory.Exists(npath) = false then
@@ -48,3 +48,8 @@ let join(path: string,name: string) =
         path;
     else
         npath;
+
+let join(path: string,name: string) =
+    let mutable npath = Path.Combine(path,name);
+    npath <- format(npath);
+    npath;

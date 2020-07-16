@@ -129,7 +129,22 @@ let main(argv) =
                 messager.error("Alrady exists this directory.");
             else
                 let mutable info = Directory.CreateDirectory(_path);
-                printf "";
+                "Created '".Print(ConsoleColor.Green);
+                command.Print(ConsoleColor.White);
+                "' directory successfully!".Println(ConsoleColor.Green);
+    );
+    shell.AddCmd("rmdir","Remove directory.",fun (command: INetShellCommand) (input: string) ->
+        let mutable command = input.RemoveNamespace();
+        if command = String.Empty then
+            messager.error("'" + input + "' is not defined!");
+        else
+            let mutable _path = shell.Prompt;
+            _path <- path.join(_path,command);
+            if Directory.Exists(_path) then
+                Directory.Delete(_path);
+            "Deleted '".Print(ConsoleColor.Green);
+            command.Print(ConsoleColor.White);
+            "' directory successfully!".Println(ConsoleColor.Green);
     );
     shell.Loop();
 
